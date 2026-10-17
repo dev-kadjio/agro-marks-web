@@ -1,0 +1,66 @@
+import type { Product } from "@/domain/product";
+import { text } from "../helpers";
+import { photo } from "../photos";
+
+export const cocoaCoffeeProducts: readonly Product[] = [
+  {
+    id: "product-034",
+    slug: "feves-de-cacao-d-obala",
+    name: text("Fèves de cacao fermentées", "Fermented cocoa beans"),
+    description: text(
+      "Fèves fermentées six jours puis séchées au soleil sur claies. Destinées aux artisans chocolatiers et aux transformateurs.",
+      "Beans fermented for six days then sun dried on raised racks. Intended for craft chocolate makers and processors.",
+    ),
+    categoryId: "cocoa-coffee",
+    farmerId: "farmer-04",
+    image: photo("cocoa-beans-hands"),
+    gallery: [photo("cocoa-beans-drying"), photo("cocoa-pods")],
+    price: { amount: 3500, currency: "XAF" },
+    unit: "kg",
+    availability: { status: "in-stock" },
+    harvestMonths: [5, 6, 7, 9, 10, 11, 12],
+    listedAt: "2026-10-01",
+    popularity: 76,
+    featured: true,
+  },
+  {
+    id: "product-035",
+    slug: "cafe-arabica-vert-de-foumbot",
+    name: text("Café arabica vert", "Green arabica coffee"),
+    description: text(
+      "Café lavé, séché sur claies et trié à la main. À torréfier soi-même.",
+      "Washed coffee, dried on raised beds and hand-sorted. For home roasting.",
+    ),
+    categoryId: "cocoa-coffee",
+    farmerId: "farmer-02",
+    image: photo("green-coffee"),
+    gallery: [photo("coffee-cherries"), photo("coffee-sorting")],
+    price: { amount: 3500, currency: "XAF" },
+    unit: "kg",
+    availability: { status: "in-stock" },
+    harvestMonths: [10, 11, 12, 1],
+    listedAt: "2026-01-20",
+    popularity: 60,
+    featured: false,
+  },
+  {
+    id: "product-036",
+    slug: "cafe-arabica-torrefie-de-foumbot",
+    name: text("Café arabica torréfié en grains", "Roasted arabica coffee beans"),
+    description: text(
+      "Torréfaction moyenne réalisée par petits lots. Sachet de 500 g en grains.",
+      "Medium roast done in small batches. 500 g bag of whole beans.",
+    ),
+    categoryId: "cocoa-coffee",
+    farmerId: "farmer-02",
+    image: photo("roasted-coffee"),
+    gallery: [photo("coffee-cherries")],
+    price: { amount: 4500, currency: "XAF" },
+    unit: "pack-500g",
+    availability: { status: "limited" },
+    harvestMonths: [],
+    listedAt: "2026-03-30",
+    popularity: 73,
+    featured: true,
+  },
+];

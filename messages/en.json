@@ -1,0 +1,745 @@
+{
+  "common": {
+    "demoBadge": "Demo",
+    "demoNotice": "Demo version: growers, prices and availability are fictional. Ordering and payment are not available.",
+    "viewAll": "View all",
+    "backHome": "Back to home",
+    "loading": "Loading…"
+  },
+  "navigation": {
+    "home": "Home",
+    "products": "Products",
+    "farmers": "Farmers",
+    "categories": "Categories",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "favorites": "Favourites",
+    "legal": "Legal notice",
+    "privacy": "Privacy",
+    "mainLabel": "Main navigation",
+    "mobileLabel": "Mobile menu",
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "homeLink": "AGRO-MARKS, back to home",
+    "favoritesWithCount": "Favourites ({count, plural, =0 {no items} one {# item} other {# items}})",
+    "search": {
+      "label": "Search for a product",
+      "placeholder": "Search for a product…",
+      "submit": "Search"
+    },
+    "language": {
+      "label": "Choose language",
+      "fr": "Français",
+      "en": "English",
+      "current": "current language"
+    },
+    "account": "My account"
+  },
+  "breadcrumbs": {
+    "label": "Breadcrumb",
+    "home": "Home"
+  },
+  "footer": {
+    "about": "AGRO-MARKS showcases the farms, production methods and produce of Cameroonian farmers.",
+    "explore": "Explore",
+    "platform": "The platform",
+    "information": "Information",
+    "contactTitle": "Contact",
+    "contactText": "A question or a partnership idea? Write to us using the contact form.",
+    "contactCta": "Go to the form",
+    "demoDisclaimer": "The farms, people, prices, availability and testimonials shown are fictional and for demonstration only.",
+    "photoCredits": "Photographs from Wikimedia Commons under free licences. See the credits in the legal notice.",
+    "rights": "© {year} AGRO-MARKS. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Cameroonian agricultural marketplace",
+      "title": "Buy closer to the people who grow your food",
+      "description": "Get to know the farmers, their farms and their production methods, then choose produce whose origin you know.",
+      "primaryCta": "Discover products",
+      "secondaryCta": "Meet the farmers",
+      "stats": {
+        "farmers": "{count, plural, one {farm} other {farms}}",
+        "products": "{count, plural, one {product} other {products}}",
+        "regions": "{count, plural, one {region} other {regions}}",
+        "label": "The platform in numbers"
+      }
+    },
+    "featured": {
+      "title": "Featured products",
+      "description": "A selection of products highlighted by growers this month."
+    },
+    "categories": {
+      "title": "Browse by category",
+      "description": "From highland vegetables to Adamawa honey."
+    },
+    "farmerSearch": {
+      "title": "Find a farmer",
+      "description": "Search for a grower by name, product, region or specialty.",
+      "submit": "View farmers"
+    },
+    "featuredFarmers": {
+      "title": "Growers to discover",
+      "description": "Each profile presents the farm, its story and its production steps."
+    },
+    "popular": {
+      "title": "Popular products",
+      "description": "The most viewed products on the demo platform."
+    },
+    "seasonal": {
+      "title": "In season in {month}",
+      "description": "Products whose harvest period, as reported by the grower, includes the current month.",
+      "empty": "No seasonal products are available this month."
+    },
+    "howItWorks": {
+      "title": "How AGRO-MARKS works",
+      "description": "A simple approach built around transparency.",
+      "steps": {
+        "discover": {
+          "title": "Discover",
+          "text": "Browse farmer profiles, their regions and their specialties."
+        },
+        "understand": {
+          "title": "Understand",
+          "text": "Read the production steps described by each farm, from soil preparation to packing."
+        },
+        "choose": {
+          "title": "Choose",
+          "text": "Compare products, their seasonality and indicative prices, and save your favourites."
+        }
+      }
+    },
+    "benefits": {
+      "title": "Why buy from farmers",
+      "description": "Shortening the distance between field and table benefits everyone.",
+      "items": {
+        "freshness": {
+          "title": "Freshness",
+          "text": "Fewer intermediaries means less time between harvest and your kitchen."
+        },
+        "origin": {
+          "title": "Known origin",
+          "text": "You know who grew it, where and how."
+        },
+        "income": {
+          "title": "Fairer income",
+          "text": "More direct sales help growers get better value for their work."
+        },
+        "seasons": {
+          "title": "Seasonal rhythm",
+          "text": "Availability follows the real harvest calendars of each region."
+        }
+      }
+    },
+    "practices": {
+      "title": "Practices explained, not promises",
+      "description": "Each grower describes their own methods. Practices vary with crops, regions and seasons: no method is presented as universal.",
+      "points": {
+        "declared": "The practices shown are reported by the growers.",
+        "noLabel": "No certification is claimed without supporting evidence.",
+        "adapted": "Steps are specific to each farm and each type of production."
+      },
+      "cta": "See an example profile"
+    },
+    "testimonials": {
+      "title": "What people say",
+      "description": "Sample reviews illustrating the intended experience.",
+      "notice": "Fictional testimonials written for the demonstration.",
+      "items": {
+        "t1": {
+          "quote": "I like knowing which farm my vegetables come from and how they were grown.",
+          "name": "Carine, Yaoundé",
+          "role": "Consumer (fictional character)"
+        },
+        "t2": {
+          "quote": "Being able to explain my cocoa fermentation to buyers who care about it is invaluable.",
+          "name": "Grower, Centre region",
+          "role": "Farmer (fictional character)"
+        },
+        "t3": {
+          "quote": "The harvest calendars help me plan my restaurant menus.",
+          "name": "Serge, Douala",
+          "role": "Restaurant owner (fictional character)"
+        }
+      }
+    },
+    "cta": {
+      "title": "Meet the growers behind your food",
+      "description": "{farmers} demo farms across {regions} regions present their work.",
+      "button": "Discover the farmers"
+    }
+  },
+  "farmers": {
+    "list": {
+      "title": "Farmers and growers in Cameroon",
+      "intro": "Discover the farms on AGRO-MARKS: market gardeners in the Western highlands, cocoa growers in the Centre, beekeepers in Adamawa and rice farmers in the North-West. Filter by region, specialty or product category."
+    },
+    "card": {
+      "productCount": "{count, plural, =0 {No products} one {# product} other {# products}}"
+    },
+    "profile": {
+      "producer": "Grower: {name}",
+      "location": "{city}, {region} region",
+      "founded": "Since {year}",
+      "area": "{area} ha",
+      "facts": "Key facts",
+      "factsLabels": {
+        "location": "Location",
+        "founded": "Established",
+        "area": "Farmed area",
+        "products": "Products offered"
+      },
+      "presentation": "Overview",
+      "story": "The farm's story",
+      "specialties": "Specialties",
+      "practices": "Farming methods",
+      "commitments": "Stated commitments",
+      "gallery": "Photo gallery",
+      "productsTitle": "Products offered by {name}",
+      "productsDescription": "Indicative prices and demo availability.",
+      "productsCta": "View products",
+      "similar": "Similar farmers",
+      "demoNotice": "Fictional profile created for the demonstration. This information is neither a certification nor a guarantee."
+    },
+    "production": {
+      "title": "Production process",
+      "description": "The steps below are described by the grower and are specific to this farm.",
+      "type": {
+        "crop": "Crop production",
+        "livestock": "Livestock farming",
+        "beekeeping": "Beekeeping"
+      },
+      "stages": {
+        "soilPreparation": "Soil preparation",
+        "sowingOrPlanting": "Sowing and planting",
+        "cropCare": "Crop care and monitoring",
+        "irrigation": "Irrigation",
+        "cropProtection": "Crop protection",
+        "harvest": "Harvest",
+        "postHarvest": "Sorting, packing and storage",
+        "housing": "Animal housing",
+        "feeding": "Feeding",
+        "animalHealth": "Health monitoring",
+        "collection": "Collection",
+        "apiarySetup": "Apiary setup",
+        "colonyCare": "Colony care"
+      },
+      "stepLabel": "Step {index}"
+    }
+  },
+  "products": {
+    "list": {
+      "title": "Agricultural product catalogue",
+      "intro": "Vegetables, fruit, tubers, cereals, cocoa, coffee, spices, honey and eggs: browse the products offered by the platform's farmers, their origin and their seasonality."
+    },
+    "card": {
+      "by": "By {farm}"
+    },
+    "price": {
+      "indicative": "Indicative demo price"
+    },
+    "units": {
+      "kg": "kg",
+      "bag-25kg": "25 kg bag",
+      "bag-50kg": "50 kg bag",
+      "bunch": "bunch",
+      "basket": "basket",
+      "bundle": "bundle",
+      "crate": "crate",
+      "tray-30": "tray of 30",
+      "jar-500g": "500 g jar",
+      "jar-1kg": "1 kg jar",
+      "liter": "litre",
+      "piece": "piece",
+      "pack-250g": "250 g pouch",
+      "pack-500g": "500 g pouch",
+      "bucket-5l": "5 L bucket"
+    },
+    "availability": {
+      "label": "Availability",
+      "in-stock": "Available",
+      "limited": "Limited quantity",
+      "pre-order": "Pre-order",
+      "out-of-season": "Out of season",
+      "preOrderDetail": "Pre-order, harvest expected in {month}",
+      "outOfSeasonDetail": "Out of season, expected back in {month}"
+    },
+    "detail": {
+      "price": "Indicative price",
+      "unit": "Sales unit",
+      "seasonality": "Seasonality",
+      "harvestMonths": "Harvest months reported by the grower",
+      "yearRound": "Produced year-round",
+      "noSeasonality": "Seasonality information not provided",
+      "producer": "The grower",
+      "viewProducer": "View the farm profile",
+      "similar": "Similar products",
+      "noOrderNotice": "This demo version does not support ordering or payment. Prices and availability are fictional.",
+      "gallery": "Product photos",
+      "showPhoto": "Show photo {index}",
+      "harvestMonthsList": "Harvested in {months}."
+    }
+  },
+  "categories": {
+    "list": {
+      "title": "Agricultural product categories",
+      "intro": "Explore the eight product families offered by AGRO-MARKS farmers."
+    },
+    "card": {
+      "productCount": "{count, plural, =0 {No products} one {# product} other {# products}}"
+    },
+    "detail": {
+      "productsTitle": "Products in this category",
+      "otherCategories": "Other categories"
+    }
+  },
+  "filters": {
+    "title": "Filters",
+    "searchLabel": "Search",
+    "farmerSearchPlaceholder": "Name, town, product…",
+    "productSearchPlaceholder": "Product name…",
+    "region": "Region",
+    "allRegions": "All regions",
+    "specialty": "Specialty",
+    "allSpecialties": "All specialties",
+    "category": "Product category",
+    "allCategories": "All categories",
+    "farmer": "Farmer",
+    "allFarmers": "All farmers",
+    "availability": "Availability",
+    "allAvailability": "All",
+    "availableOnly": "With products available",
+    "price": "Price (FCFA)",
+    "minPrice": "Minimum price",
+    "maxPrice": "Maximum price",
+    "minPlaceholder": "Min",
+    "maxPlaceholder": "Max",
+    "sort": "Sort by",
+    "sortOptions": {
+      "relevance": "Relevance",
+      "name-asc": "Name (A to Z)",
+      "name-desc": "Name (Z to A)",
+      "price-asc": "Price: low to high",
+      "price-desc": "Price: high to low",
+      "newest": "Newest"
+    },
+    "availabilityOptions": {
+      "available": "Available now",
+      "pre-order": "Pre-order",
+      "out-of-season": "Out of season"
+    },
+    "apply": "Apply",
+    "reset": "Reset filters",
+    "results": "{count, plural, =0 {No results} one {# result} other {# results}}",
+    "activeCount": "{count, plural, one {# active filter} other {# active filters}}",
+    "showFilters": "Show filters",
+    "hideFilters": "Hide filters",
+    "updating": "Updating results…",
+    "empty": {
+      "title": "No results",
+      "farmers": "No farmers match these criteria. Try broadening your search or resetting the filters.",
+      "products": "No products match these criteria. Try broadening your search or resetting the filters."
+    }
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Previous page",
+    "next": "Next page",
+    "page": "Page {page}",
+    "status": "Page {page} of {pageCount}"
+  },
+  "carousel": {
+    "previous": "Previous products",
+    "next": "Next products",
+    "slide": "{index} of {total}"
+  },
+  "favorites": {
+    "title": "My favourites",
+    "intro": "Find the products and farmers you have saved.",
+    "localNotice": "Your favourites are stored only in this browser, on this device. They are not linked to any account and are not synchronised.",
+    "products": "Products ({count})",
+    "farmers": "Farmers ({count})",
+    "add": "Add {name} to favourites",
+    "remove": "Remove {name} from favourites",
+    "addShort": "Add to favourites",
+    "removeShort": "Remove from favourites",
+    "clearAll": "Clear favourites",
+    "loading": "Loading your favourites…",
+    "empty": {
+      "title": "No favourites yet",
+      "text": "Use the heart button on a product or a farmer to add it here.",
+      "products": "No favourite products.",
+      "farmers": "No favourite farmers.",
+      "cta": "Browse products"
+    },
+    "unavailable": "Favourites need access to browser storage, which seems to be unavailable."
+  },
+  "about": {
+    "title": "About AGRO-MARKS",
+    "intro": "AGRO-MARKS is an agricultural marketplace project that aims to bring Cameroonian consumers closer to the women and men who produce their food.",
+    "mission": {
+      "title": "Our mission",
+      "text": "To make farmers, their farms and their working methods visible, so that everyone can choose produce knowing where it comes from."
+    },
+    "values": {
+      "title": "Our principles",
+      "transparency": {
+        "title": "Transparency",
+        "text": "Present practices as described by the growers, without unsupported promises."
+      },
+      "proximity": {
+        "title": "Proximity",
+        "text": "Shorten the distance between field and table, region by region."
+      },
+      "quality": {
+        "title": "Quality",
+        "text": "Highlight the know-how, sorting and care that go into each harvest."
+      },
+      "nature": {
+        "title": "Respect for nature",
+        "text": "Celebrate crop diversity and the rhythm of the seasons."
+      }
+    },
+    "status": {
+      "title": "Where is the project today?",
+      "text": "This site is a demo version. Growers, prices and testimonials are fictional. Next steps include onboarding real farms, a process for verifying information and, eventually, features to put buyers and growers in touch."
+    },
+    "cta": "Discover the farmers"
+  },
+  "contact": {
+    "title": "Contact us",
+    "intro": "Are you a farmer, a consumer or a partner who would like to know more about AGRO-MARKS? Use the form below.",
+    "notice": "No sending server is configured in this version: your message is checked in your browser but is not transmitted.",
+    "detailsTitle": "Contact details",
+    "detailsText": "Official contact details (address, phone, email) will be published once AGRO-MARKS's legal entity has been established."
+  },
+  "forms": {
+    "required": "required",
+    "name": "Full name",
+    "email": "Email address",
+    "subject": "Subject",
+    "subjectPlaceholder": "Choose a subject",
+    "subjects": {
+      "general": "General question",
+      "farmer": "I am a farmer",
+      "partnership": "Partnership",
+      "other": "Other"
+    },
+    "message": "Message",
+    "messageHint": "Between 20 and 2,000 characters.",
+    "consent": "I agree that my information may be used to respond to my request.",
+    "submit": "Check and send",
+    "errorSummary": "{count, plural, one {The form contains # error.} other {The form contains # errors.}}",
+    "success": {
+      "title": "Message checked",
+      "text": "Your message is valid. Since no backend is configured in this version, it has not been sent.",
+      "reset": "Write a new message"
+    },
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "nameTooLong": "Your name must be 80 characters or fewer.",
+      "emailInvalid": "Please enter a valid email address.",
+      "subjectRequired": "Please choose a subject.",
+      "messageTooShort": "Your message must be at least 20 characters long.",
+      "messageTooLong": "Your message must be 2,000 characters or fewer.",
+      "consentRequired": "Your consent is required to send the message."
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "intro": "Answers to the most common questions about AGRO-MARKS and this demo version.",
+    "items": {
+      "what": {
+        "question": "What is AGRO-MARKS?",
+        "answer": "AGRO-MARKS is an agricultural marketplace project that presents Cameroonian farmers, their farms, their production methods and their produce."
+      },
+      "order": {
+        "question": "Can I order or pay online?",
+        "answer": "No. This version is a demo: no ordering, payment or delivery is offered."
+      },
+      "prices": {
+        "question": "Are the prices shown real?",
+        "answer": "No. Prices are indicative and fictional. They are shown in CFA francs (FCFA) to illustrate how the catalogue works."
+      },
+      "farmers": {
+        "question": "Do the farmers shown really exist?",
+        "answer": "The farms and people shown are fictional. They are inspired by crops that are genuinely grown in Cameroon's regions."
+      },
+      "certification": {
+        "question": "Are the farming practices certified?",
+        "answer": "No. The practices described are presented as reported by the growers. No certification or label is claimed in this version."
+      },
+      "favorites": {
+        "question": "How do favourites work?",
+        "answer": "Favourites are saved in your browser's local storage. They are not linked to an account and disappear if you clear the site's data."
+      },
+      "join": {
+        "question": "I am a farmer. How can I join the platform?",
+        "answer": "Grower registration is not open yet. You can express your interest through the contact page; note that messages are not transmitted yet in this version."
+      },
+      "languages": {
+        "question": "Which languages is the site available in?",
+        "answer": "The site is available in French and English. Use the language selector in the header to switch between them."
+      }
+    }
+  },
+  "legal": {
+    "title": "Legal notice",
+    "intro": "This page sets out the structure of the legal notice. Information in square brackets must be completed with the publisher's real details before going live.",
+    "sections": {
+      "publisher": {
+        "title": "Site publisher",
+        "text": "[Company name], [legal form], [share capital], [registration number], [registered office address], [contact email address]."
+      },
+      "director": {
+        "title": "Publication director",
+        "text": "[Name and position of the publication director]."
+      },
+      "hosting": {
+        "title": "Hosting",
+        "text": "[Hosting provider name], [address], [contact]."
+      },
+      "content": {
+        "title": "Demo content",
+        "text": "The farms, people, prices, availability and testimonials on this site are fictional and are neither a commercial offer nor a guarantee."
+      },
+      "ip": {
+        "title": "Intellectual property",
+        "text": "The AGRO-MARKS brand and logo belong to their owners. Photographs are used in accordance with their respective licences, listed below."
+      }
+    },
+    "credits": {
+      "title": "Photo credits",
+      "intro": "Photographs come from Wikimedia Commons. Some have been cropped or resized.",
+      "source": "Source"
+    }
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "intro": "This policy describes how data is handled in the demo version. It must be adapted to the actual data processing before going live.",
+    "sections": {
+      "controller": {
+        "title": "Data controller",
+        "text": "[Identity and contact details of the data controller, to be completed]."
+      },
+      "collected": {
+        "title": "Data collected",
+        "text": "This version does not send any personal data to a server. The contact form is only checked in your browser and is not sent."
+      },
+      "local": {
+        "title": "Local storage",
+        "text": "Your favourites and, if you use the sign-up simulation, your demo account (name, email, profile, town and password hash) are saved in your browser's local storage (localStorage). Nothing is sent to a server. You can delete them at any time by clearing the site's data."
+      },
+      "cookies": {
+        "title": "Cookies and analytics",
+        "text": "No tracking cookies or analytics tools are used in this version."
+      },
+      "rights": {
+        "title": "Your rights",
+        "text": "[How to exercise your rights of access, rectification and erasure, to be completed according to applicable regulations]."
+      },
+      "whatsapp": {
+        "title": "Contact via WhatsApp",
+        "text": "The WhatsApp button opens the WhatsApp app or website with a pre-filled message. No message is sent without your action. Conversations are then subject to WhatsApp's terms and privacy policy."
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you are looking for does not exist or has been moved.",
+      "products": "Browse products",
+      "farmers": "View farmers"
+    },
+    "generic": {
+      "title": "Something went wrong",
+      "description": "The content could not be displayed. Please try again.",
+      "retry": "Try again"
+    }
+  },
+  "seo": {
+    "defaultTitle": "AGRO-MARKS — Cameroonian agricultural marketplace",
+    "defaultDescription": "Discover Cameroonian farmers, their farms, their production methods and their produce on AGRO-MARKS.",
+    "home": {
+      "title": "AGRO-MARKS — Farm produce and farmers from Cameroon",
+      "description": "An agricultural marketplace connecting consumers with Cameroonian farmers: grower profiles, production methods and seasonal produce."
+    },
+    "farmers": {
+      "title": "Farmers and growers in Cameroon",
+      "description": "Directory of AGRO-MARKS farmers: market gardeners, cocoa growers, beekeepers and poultry farmers, filterable by region, specialty and category."
+    },
+    "farmer": {
+      "title": "{farm} — {city}",
+      "description": "{tagline} Discover the farm, its production process and its products."
+    },
+    "products": {
+      "title": "Agricultural product catalogue",
+      "description": "Vegetables, fruit, tubers, cereals, cocoa, coffee, spices, honey and eggs offered by Cameroonian farmers."
+    },
+    "product": {
+      "title": "{product} — {farm}",
+      "description": "{product} grown by {farm} ({city}). Origin, seasonality and indicative price."
+    },
+    "categories": {
+      "title": "Agricultural product categories",
+      "description": "Browse AGRO-MARKS product categories: vegetables, fruit, tubers, cereals, cocoa, coffee, spices, honey, eggs and poultry."
+    },
+    "category": {
+      "title": "{category} from Cameroon",
+      "description": "{summary} Products offered by Cameroonian farmers on AGRO-MARKS."
+    },
+    "favorites": {
+      "title": "My favourites",
+      "description": "Products and farmers saved to your favourites on AGRO-MARKS."
+    },
+    "about": {
+      "title": "About",
+      "description": "AGRO-MARKS's mission: bringing consumers closer to Cameroonian farmers through transparency about produce and production methods."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact the AGRO-MARKS team with a question, a partnership idea or to present your farm."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "description": "Answers to frequently asked questions about AGRO-MARKS: orders, prices, growers, farming practices and favourites."
+    },
+    "legal": {
+      "title": "Legal notice",
+      "description": "Legal notice and photo credits for the AGRO-MARKS website."
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "How AGRO-MARKS handles data in its demo version."
+    },
+    "notFound": {
+      "title": "Page not found"
+    },
+    "login": {
+      "title": "Sign in",
+      "description": "Sign in to your AGRO-MARKS account."
+    },
+    "register": {
+      "title": "Create an account",
+      "description": "Sign up for AGRO-MARKS."
+    },
+    "account": {
+      "title": "My account",
+      "description": "Your AGRO-MARKS profile."
+    }
+  },
+  "regions": {
+    "adamawa": "Adamawa",
+    "centre": "Centre",
+    "east": "East",
+    "far-north": "Far North",
+    "littoral": "Littoral",
+    "north": "North",
+    "north-west": "North-West",
+    "south": "South",
+    "south-west": "South-West",
+    "west": "West"
+  },
+  "specialties": {
+    "market-gardening": "Market gardening",
+    "highland-vegetables": "Highland vegetables",
+    "leafy-vegetables": "Leafy greens",
+    "arabica-coffee": "Arabica coffee",
+    "pepper": "Pepper",
+    "cocoa": "Cocoa",
+    "plantain": "Plantain",
+    "tubers": "Tubers",
+    "fruit-orchards": "Orchards",
+    "pineapple": "Pineapple",
+    "rice": "Rice",
+    "cereals": "Cereals",
+    "legumes": "Legumes",
+    "onions": "Onions",
+    "beekeeping": "Beekeeping",
+    "poultry": "Poultry",
+    "avocado": "Avocado"
+  },
+  "practices": {
+    "agroforestry": "Agroforestry",
+    "crop-rotation": "Crop rotation",
+    "intercropping": "Intercropping",
+    "composting": "Composting",
+    "mulching": "Mulching",
+    "rain-fed": "Rain-fed farming",
+    "drip-irrigation": "Drip irrigation",
+    "manual-weeding": "Hand weeding",
+    "integrated-pest-management": "Integrated pest management",
+    "free-range": "Outdoor access",
+    "seed-saving": "Farm-saved seed",
+    "sun-drying": "Sun drying"
+  },
+  "whatsapp": {
+    "cta": "Chat on WhatsApp",
+    "opensExternally": "(opens WhatsApp in a new tab)",
+    "farmerNote": "You will be taken to WhatsApp with a pre-filled message that you can edit before sending.",
+    "platformNote": "Your message goes to the AGRO-MARKS team, who will put you in touch with {farm}. It is pre-filled and can be edited before sending.",
+    "unavailable": "WhatsApp contact is not configured yet in this demo version.",
+    "productMessage": "Hello {farm}, I am interested in your product \"{product}\" ({price} / {unit}) seen on AGRO-MARKS: {url}. Is it available?",
+    "farmerMessage": "Hello {farm}, I discovered your farm on AGRO-MARKS ({url}) and would like to know more about your products."
+  },
+  "auth": {
+    "notice": "Demo simulation: the account is stored only in this browser (localStorage). No data is sent to a server; do not use a real password.",
+    "loading": "Loading your account…",
+    "pending": "Please wait…",
+    "passwordHint": "At least 8 characters.",
+    "fields": {
+      "name": "Full name",
+      "email": "Email address",
+      "role": "I am a",
+      "city": "Town (optional)",
+      "password": "Password",
+      "confirmPassword": "Confirm password"
+    },
+    "roles": {
+      "consumer": "Consumer",
+      "farmer": "Farmer"
+    },
+    "register": {
+      "title": "Create an account",
+      "intro": "Create your AGRO-MARKS account to find your profile and favourites.",
+      "submit": "Create my account",
+      "hasAccount": "Already have an account?"
+    },
+    "login": {
+      "title": "Sign in",
+      "intro": "Sign in to access your profile.",
+      "submit": "Sign in",
+      "noAccount": "No account yet?"
+    },
+    "account": {
+      "title": "My account",
+      "greeting": "Hello {name}",
+      "linkSignedIn": "My account ({name})",
+      "signedOutTitle": "You are not signed in",
+      "signedOutText": "Sign in or create an account to see your profile.",
+      "notProvided": "Not provided",
+      "viewFavorites": "View my favourites",
+      "logout": "Sign out",
+      "fields": {
+        "email": "Email",
+        "role": "Profile",
+        "city": "Town",
+        "memberSince": "Member since",
+        "favorites": "Saved favourites"
+      }
+    },
+    "errors": {
+      "nameRequired": "Please enter your name (at least 2 characters).",
+      "emailInvalid": "Please enter a valid email address.",
+      "passwordTooShort": "Your password must be at least 8 characters long.",
+      "passwordsMismatch": "The passwords do not match.",
+      "roleRequired": "Please choose a profile.",
+      "passwordRequired": "Please enter your password.",
+      "emailTaken": "An account with this email address already exists in this browser.",
+      "invalidCredentials": "Incorrect email address or password.",
+      "storageUnavailable": "Browser storage is unavailable: the account cannot be saved."
+    }
+  }
+}
