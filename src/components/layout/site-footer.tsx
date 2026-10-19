@@ -7,8 +7,7 @@ const footerColumns = [
   {
     titleKey: "explore",
     links: [
-      { key: "products", href: "/products" },
-      { key: "farmers", href: "/farmers" },
+      { key: "producers", href: "/producers" },
       { key: "categories", href: "/categories" },
       { key: "favorites", href: "/favorites" },
     ],

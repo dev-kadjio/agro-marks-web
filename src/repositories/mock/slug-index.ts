@@ -1,11 +1,11 @@
 import { categories } from "@/data/categories";
-import { farmers } from "@/data/farmers";
+import { producers } from "@/data/producers";
 import { products } from "@/data/products";
 import type { SlugCollection, SlugIndex } from "../contracts";
 
 export function createSlugIndex(slugs: Readonly<Record<SlugCollection, readonly string[]>>): SlugIndex {
   const sets = {
-    farmers: new Set(slugs.farmers),
+    producers: new Set(slugs.producers),
     products: new Set(slugs.products),
     categories: new Set(slugs.categories),
   };
@@ -16,7 +16,7 @@ export function createSlugIndex(slugs: Readonly<Record<SlugCollection, readonly 
 
 export function createMockSlugIndex(): SlugIndex {
   return createSlugIndex({
-    farmers: farmers.map((farmer) => farmer.slug),
+    producers: producers.map((producer) => producer.slug),
     products: products.map((product) => product.slug),
     categories: categories.map((category) => category.slug),
   });

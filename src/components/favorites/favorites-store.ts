@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-export type FavoriteKind = "product" | "farmer";
+export type FavoriteKind = "product" | "producer";
 
 export interface FavoritesSnapshot {
   readonly product: readonly string[];
-  readonly farmer: readonly string[];
+  readonly producer: readonly string[];
 }
 
 export interface FavoritesStore {
@@ -18,13 +18,17 @@ export interface FavoritesStore {
 
 export const FAVORITES_STORAGE_KEY = "agro-marks:favorites:v1";
 
-export const EMPTY_FAVORITES: FavoritesSnapshot = Object.freeze({ product: [], farmer: [] });
+export const EMPTY_FAVORITES: FavoritesSnapshot = Object.freeze({ product: [], producer: [] });
 
 const idList = z.array(z.string().min(1).max(120)).max(500).catch([]);
 
 const snapshotSchema = z
-  .object({ product: idList, farmer: idList })
-  .catch({ product: [], farmer: [] });
+  .object({ product: idList, producer: idList, farmer: idList })
+  .catch({ product: [], producer: [], farmer: [] });
+
+function migrateLegacyProducerId(id: string): string {
+  return id.replace(/^farmer-/, "producer-");
+}
 
 function parseSnapshot(raw: string | null): FavoritesSnapshot {
   if (!raw) {
@@ -32,7 +36,10 @@ function parseSnapshot(raw: string | null): FavoritesSnapshot {
   }
   try {
     const parsed = snapshotSchema.parse(JSON.parse(raw));
-    return { product: [...new Set(parsed.product)], farmer: [...new Set(parsed.farmer)] };
+    return {
+      product: [...new Set(parsed.product)],
+      producer: [...new Set([...parsed.producer, ...parsed.farmer.map(migrateLegacyProducerId)])],
+    };
   } catch {
     return EMPTY_FAVORITES;
   }

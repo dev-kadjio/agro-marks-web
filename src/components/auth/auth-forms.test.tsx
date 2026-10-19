@@ -36,7 +36,7 @@ describe("auth forms", () => {
     const account = renderWithProviders(<AccountView />);
     expect(screen.getByRole("heading", { name: "Bonjour Awa Ndiaye" })).toBeInTheDocument();
     expect(screen.getByText("awa@example.com")).toBeInTheDocument();
-    expect(screen.getAllByText("Agriculteur").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Producteur").length).toBeGreaterThan(0);
     await user.click(screen.getByRole("button", { name: "Se déconnecter" }));
     expect(screen.getByRole("heading", { name: "Vous n'êtes pas connecté" })).toBeInTheDocument();
     account.unmount();

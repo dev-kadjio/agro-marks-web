@@ -1,7 +1,7 @@
 {
   "common": {
     "demoBadge": "Démonstration",
-    "demoNotice": "Version de démonstration : producteurs, prix et disponibilités sont fictifs. Aucune commande ni aucun paiement n'est possible.",
+    "demoNotice": "Version de démonstration : les producteurs présentés sont fictifs. AGRO-MARKS fait découvrir des producteurs et ne vend aucun produit en ligne.",
     "viewAll": "Tout voir",
     "backHome": "Retour à l'accueil",
     "loading": "Chargement…"
@@ -9,7 +9,7 @@
   "navigation": {
     "home": "Accueil",
     "products": "Produits",
-    "farmers": "Agriculteurs",
+    "producers": "Producteurs",
     "categories": "Catégories",
     "about": "À propos",
     "contact": "Contact",
@@ -25,8 +25,8 @@
     "homeLink": "AGRO-MARKS, retour à l'accueil",
     "favoritesWithCount": "Favoris ({count, plural, =0 {aucun élément} one {# élément} other {# éléments}})",
     "search": {
-      "label": "Rechercher un produit",
-      "placeholder": "Rechercher un produit…",
+      "label": "Rechercher un producteur",
+      "placeholder": "Rechercher un producteur…",
       "submit": "Rechercher"
     },
     "language": {
@@ -42,56 +42,56 @@
     "home": "Accueil"
   },
   "footer": {
-    "about": "AGRO-MARKS met en avant les exploitations, les méthodes de production et les produits des agriculteurs camerounais.",
+    "about": "AGRO-MARKS fait découvrir les agriculteurs et les éleveurs camerounais, leurs exploitations et leurs méthodes de production.",
     "explore": "Explorer",
     "platform": "La plateforme",
     "information": "Informations",
     "contactTitle": "Contact",
     "contactText": "Une question ou un projet de partenariat ? Écrivez-nous via le formulaire de contact.",
     "contactCta": "Accéder au formulaire",
-    "demoDisclaimer": "Les exploitations, personnes, prix, disponibilités et témoignages présentés sont fictifs et servent uniquement à la démonstration.",
+    "demoDisclaimer": "Les exploitations, personnes et témoignages présentés sont fictifs et servent uniquement à la démonstration.",
     "photoCredits": "Photographies issues de Wikimedia Commons, sous licences libres. Voir les crédits dans les mentions légales.",
     "rights": "© {year} AGRO-MARKS. Tous droits réservés."
   },
   "home": {
     "hero": {
-      "eyebrow": "Marketplace agricole camerounaise",
-      "title": "Achetez au plus près de ceux qui cultivent",
-      "description": "Découvrez les agriculteurs, leurs exploitations et leurs méthodes de production, puis choisissez des produits dont vous connaissez l'origine.",
-      "primaryCta": "Découvrir les produits",
-      "secondaryCta": "Rencontrer les agriculteurs",
+      "eyebrow": "Agriculteurs et éleveurs du Cameroun",
+      "title": "Découvrez celles et ceux qui produisent notre alimentation",
+      "description": "AGRO-MARKS présente des agriculteurs et des éleveurs camerounais : leurs exploitations, leurs savoir-faire et la manière dont ils cultivent ou élèvent.",
+      "primaryCta": "Découvrir les producteurs",
+      "secondaryCta": "Explorer les domaines",
       "stats": {
-        "farmers": "{count, plural, one {exploitation} other {exploitations}}",
-        "products": "{count, plural, one {produit} other {produits}}",
+        "producers": "{count, plural, one {producteur} other {producteurs}}",
+        "categories": "{count, plural, one {domaine de production} other {domaines de production}}",
         "regions": "{count, plural, one {région} other {régions}}",
         "label": "La plateforme en chiffres"
       }
     },
-    "featured": {
-      "title": "Produits vedettes",
-      "description": "Une sélection de produits mis en avant par les producteurs ce mois-ci."
+    "producerTypes": {
+      "title": "Deux métiers, un même savoir-faire",
+      "description": "La plateforme réunit des producteurs de cultures et des éleveurs. Chacun présente ses méthodes avec son propre vocabulaire.",
+      "farmer": {
+        "text": "Maraîchers, arboriculteurs, cacaoculteurs ou riziculteurs : ils préparent le sol, sèment, entretiennent et récoltent.",
+        "cta": "Voir les agriculteurs"
+      },
+      "breeder": {
+        "text": "Aviculteurs, éleveurs de bovins, de porcs, de petits ruminants, pisciculteurs ou apiculteurs : ils logent, nourrissent et soignent leurs animaux.",
+        "cta": "Voir les éleveurs"
+      },
+      "count": "{count, plural, one {# profil} other {# profils}}"
     },
     "categories": {
-      "title": "Parcourir par catégorie",
-      "description": "Des légumes des hautes terres au miel de l'Adamaoua."
+      "title": "Explorer par domaine de production",
+      "description": "Des légumes des hautes terres à la pisciculture du Centre."
     },
-    "farmerSearch": {
-      "title": "Trouver un agriculteur",
-      "description": "Recherchez un producteur par nom, par produit, par région ou par spécialité.",
-      "submit": "Voir les agriculteurs"
+    "producerSearch": {
+      "title": "Trouver un producteur",
+      "description": "Recherchez un agriculteur ou un éleveur par nom, par type, par région ou par spécialité.",
+      "submit": "Voir les producteurs"
     },
-    "featuredFarmers": {
+    "featuredProducers": {
       "title": "Producteurs à découvrir",
       "description": "Chaque profil présente l'exploitation, son histoire et ses étapes de production."
-    },
-    "popular": {
-      "title": "Produits populaires",
-      "description": "Les produits les plus consultés sur la plateforme de démonstration."
-    },
-    "seasonal": {
-      "title": "De saison en {month}",
-      "description": "Produits dont la période de récolte, indiquée par le producteur, inclut le mois en cours.",
-      "empty": "Aucun produit de saison n'est disponible ce mois-ci."
     },
     "howItWorks": {
       "title": "Comment fonctionne AGRO-MARKS",
@@ -99,43 +99,43 @@
       "steps": {
         "discover": {
           "title": "Découvrez",
-          "text": "Parcourez les profils des agriculteurs, leurs régions et leurs spécialités."
+          "text": "Parcourez les profils des agriculteurs et des éleveurs, leurs régions et leurs spécialités."
         },
         "understand": {
           "title": "Comprenez",
-          "text": "Consultez les étapes de production décrites par chaque exploitation, de la préparation du sol au conditionnement."
+          "text": "Consultez les étapes de production décrites par chaque exploitation, de la préparation du sol ou des installations jusqu'à la récolte."
         },
-        "choose": {
-          "title": "Choisissez",
-          "text": "Comparez les produits, leur saisonnalité et leur prix indicatif, et gardez vos préférés en favoris."
+        "connect": {
+          "title": "Échangez",
+          "text": "Gardez vos producteurs préférés en favoris et prenez contact pour en savoir plus sur leur activité."
         }
       }
     },
     "benefits": {
-      "title": "Pourquoi acheter auprès des agriculteurs",
-      "description": "Raccourcir la distance entre le champ et la table profite à tous.",
+      "title": "Pourquoi découvrir les producteurs",
+      "description": "Mieux connaître celles et ceux qui produisent change le regard porté sur l'alimentation.",
       "items": {
-        "freshness": {
-          "title": "Fraîcheur",
-          "text": "Moins d'intermédiaires, c'est moins de temps entre la récolte et votre cuisine."
-        },
         "origin": {
           "title": "Origine connue",
-          "text": "Vous savez qui a produit, où et comment."
+          "text": "Savoir qui produit, où et comment."
         },
-        "income": {
-          "title": "Revenu plus juste",
-          "text": "Une vente plus directe permet aux producteurs de mieux valoriser leur travail."
+        "knowHow": {
+          "title": "Savoir-faire",
+          "text": "Comprendre les gestes, les contraintes et les choix de chaque exploitation."
+        },
+        "diversity": {
+          "title": "Diversité",
+          "text": "Découvrir la variété des cultures et des élevages d'une région à l'autre."
         },
         "seasons": {
-          "title": "Respect des saisons",
-          "text": "Les disponibilités suivent les calendriers de récolte réels de chaque région."
+          "title": "Rythme des saisons",
+          "text": "Suivre les calendriers réels des récoltes, des mises bas et des pêches."
         }
       }
     },
     "practices": {
       "title": "Des pratiques expliquées, pas des promesses",
-      "description": "Chaque producteur décrit ses propres méthodes. Les pratiques varient selon les cultures, les régions et les saisons : aucune méthode n'est présentée comme universelle.",
+      "description": "Chaque producteur décrit ses propres méthodes. Les pratiques varient selon les cultures, les élevages, les régions et les saisons : aucune méthode n'est présentée comme universelle.",
       "points": {
         "declared": "Les pratiques affichées sont déclarées par les producteurs.",
         "noLabel": "Aucune certification n'est revendiquée sans justificatif.",
@@ -154,53 +154,60 @@
           "role": "Consommatrice (personnage fictif)"
         },
         "t2": {
-          "quote": "Pouvoir expliquer ma fermentation du cacao à des acheteurs qui s'y intéressent, c'est précieux.",
+          "quote": "Pouvoir expliquer ma fermentation du cacao à des personnes qui s'y intéressent, c'est précieux.",
           "name": "Productrice, Centre",
           "role": "Agricultrice (personnage fictif)"
         },
         "t3": {
-          "quote": "Les calendriers de récolte m'aident à planifier les menus de mon restaurant.",
+          "quote": "Les calendriers de récolte et de pêche m'aident à planifier les menus de mon restaurant.",
           "name": "Serge, Douala",
           "role": "Restaurateur (personnage fictif)"
         }
       }
     },
     "cta": {
-      "title": "Rencontrez les producteurs derrière vos produits",
-      "description": "{farmers} exploitations de démonstration, réparties dans {regions} régions, vous présentent leur travail.",
-      "button": "Découvrir les agriculteurs"
+      "title": "Rencontrez les producteurs du Cameroun",
+      "description": "{producers} exploitations de démonstration, réparties dans {regions} régions, vous présentent leur travail.",
+      "button": "Découvrir les producteurs"
     }
   },
-  "farmers": {
+  "producers": {
     "list": {
-      "title": "Agriculteurs et producteurs du Cameroun",
-      "intro": "Découvrez les exploitations présentes sur AGRO-MARKS : maraîchers des hautes terres de l'Ouest, cacaoculteurs du Centre, apiculteurs de l'Adamaoua ou riziculteurs du Nord-Ouest. Filtrez par région, spécialité ou catégorie de produits."
+      "title": "Découvrez nos producteurs",
+      "intro": "Maraîchers des hautes terres, cacaoculteurs du Centre, éleveurs de zébus de l'Adamaoua, pisciculteurs ou apiculteurs : découvrez les agriculteurs et les éleveurs présents sur AGRO-MARKS. Filtrez par type de producteur, région, ville, spécialité ou domaine de production."
     },
     "card": {
-      "productCount": "{count, plural, =0 {Aucun produit} one {# produit} other {# produits}}"
+      "viewProfile": "Découvrir le producteur"
     },
     "profile": {
-      "producer": "Producteur : {name}",
+      "runBy": "Exploitation tenue par {name}",
       "location": "{city}, région {region}",
       "founded": "Depuis {year}",
       "area": "{area} ha",
       "facts": "Repères",
       "factsLabels": {
+        "type": "Type de producteur",
         "location": "Localisation",
         "founded": "Installation",
-        "area": "Surface cultivée",
-        "products": "Produits proposés"
+        "area": "Surface de l'exploitation",
+        "outputs": "Productions présentées"
       },
+      "outputCount": "{count, plural, =0 {Aucune production} one {# production} other {# productions}}",
       "presentation": "Présentation",
-      "story": "Histoire de l'exploitation",
+      "story": "Histoire et activité",
       "specialties": "Spécialités",
-      "practices": "Méthodes agricoles",
+      "practices": "Méthodes de production",
       "commitments": "Engagements déclarés",
       "gallery": "Galerie photo",
-      "productsTitle": "Produits proposés par {name}",
-      "productsDescription": "Prix indicatifs et disponibilités de démonstration.",
-      "productsCta": "Voir les produits",
-      "similar": "Agriculteurs similaires",
+      "productionCta": "Découvrir les méthodes de production",
+      "livestockTitle": "Notre élevage",
+      "livestockDescription": "Les espèces élevées sur l'exploitation, telles que décrites par l'éleveur.",
+      "outputsTitle": "{type, select, farmer {Nos cultures et productions} breeder {Les productions de l'élevage} other {Les productions de l'exploitation}}",
+      "outputsDescription": "{type, select, farmer {Ce que l'exploitation cultive et récolte, avec les périodes de récolte indiquées par l'agriculteur.} breeder {Ce que l'élevage produit, avec les périodes indiquées par l'éleveur.} other {Ce que l'exploitation produit.}}",
+      "seasonality": "Période : {months}",
+      "yearRound": "Toute l'année",
+      "noSeasonality": "Période non communiquée",
+      "similar": "Autres producteurs à découvrir",
       "demoNotice": "Profil fictif créé pour la démonstration. Les informations ne constituent ni une certification ni une garantie."
     },
     "production": {
@@ -209,25 +216,61 @@
       "type": {
         "crop": "Production végétale",
         "livestock": "Élevage",
-        "beekeeping": "Apiculture"
+        "beekeeping": "Apiculture",
+        "aquaculture": "Pisciculture"
       },
       "stages": {
-        "soilPreparation": "Préparation du sol",
-        "sowingOrPlanting": "Semis et plantation",
-        "cropCare": "Entretien et suivi des cultures",
-        "irrigation": "Irrigation",
-        "cropProtection": "Protection des cultures",
-        "harvest": "Récolte",
-        "postHarvest": "Tri, conditionnement et conservation",
-        "housing": "Logement des animaux",
-        "feeding": "Alimentation",
-        "animalHealth": "Suivi sanitaire",
-        "collection": "Collecte",
-        "apiarySetup": "Installation du rucher",
-        "colonyCare": "Suivi des colonies"
+        "crop": {
+          "soilPreparation": "Préparation du sol",
+          "sowingOrPlanting": "Semis et plantation",
+          "cropCare": "Entretien et suivi des cultures",
+          "irrigation": "Irrigation",
+          "cropProtection": "Protection des cultures",
+          "harvest": "Récolte",
+          "postHarvest": "Tri, conditionnement et conservation"
+        },
+        "livestock": {
+          "housing": "Préparation des installations",
+          "husbandry": "Mode d'élevage",
+          "feeding": "Alimentation",
+          "animalHealth": "Santé et bien-être animal",
+          "growth": "Croissance et entretien",
+          "reproduction": "Reproduction",
+          "collection": "Production et collecte",
+          "postHarvest": "Transformation et conditionnement"
+        },
+        "beekeeping": {
+          "apiarySetup": "Installation du rucher",
+          "colonyCare": "Suivi des colonies",
+          "harvest": "Récolte",
+          "postHarvest": "Extraction et conditionnement"
+        },
+        "aquaculture": {
+          "pondPreparation": "Préparation des bassins",
+          "stocking": "Empoissonnement",
+          "feeding": "Alimentation",
+          "waterQuality": "Suivi de l'eau et des poissons",
+          "harvest": "Pêche de récolte",
+          "postHarvest": "Tri, transformation et conservation"
+        }
       },
       "stepLabel": "Étape {index}"
     }
+  },
+  "producerTypes": {
+    "farmer": "Agriculteur",
+    "breeder": "Éleveur"
+  },
+  "species": {
+    "chicken": "Poules et poulets",
+    "duck": "Canards",
+    "cattle": "Bovins",
+    "pig": "Porcs",
+    "goat": "Chèvres",
+    "sheep": "Moutons",
+    "tilapia": "Tilapias",
+    "catfish": "Silures",
+    "honeybee": "Abeilles"
   },
   "products": {
     "list": {
@@ -284,33 +327,46 @@
   },
   "categories": {
     "list": {
-      "title": "Catégories de produits agricoles",
-      "intro": "Explorez les huit familles de produits proposées par les agriculteurs d'AGRO-MARKS."
+      "title": "Domaines de production",
+      "intro": "Cultures et élevages : explorez les domaines de production représentés sur AGRO-MARKS, puis découvrez les producteurs qui les pratiquent."
+    },
+    "groups": {
+      "farmer": {
+        "title": "Agriculture",
+        "description": "Cultures vivrières, maraîchage, vergers, céréales et cultures de rente."
+      },
+      "breeder": {
+        "title": "Élevage",
+        "description": "Volailles, bovins, porcs, petits ruminants, poissons et abeilles."
+      }
     },
     "card": {
-      "productCount": "{count, plural, =0 {Aucun produit} one {# produit} other {# produits}}"
+      "producerCount": "{count, plural, =0 {Aucun producteur} one {# producteur} other {# producteurs}}"
     },
     "detail": {
-      "productsTitle": "Produits de la catégorie",
-      "otherCategories": "Autres catégories"
+      "producersTitle": "Producteurs de ce domaine",
+      "otherCategories": "Autres domaines de production"
     }
   },
   "filters": {
     "title": "Filtres",
     "searchLabel": "Recherche",
-    "farmerSearchPlaceholder": "Nom, ville, produit…",
+    "type": "Type de producteur",
+    "allTypes": "Tous les producteurs",
+    "producerSearchPlaceholder": "Nom, ville, culture, élevage…",
     "productSearchPlaceholder": "Nom du produit…",
     "region": "Région",
     "allRegions": "Toutes les régions",
+    "city": "Ville",
+    "allCities": "Toutes les villes",
     "specialty": "Spécialité",
     "allSpecialties": "Toutes les spécialités",
-    "category": "Catégorie de produits",
-    "allCategories": "Toutes les catégories",
-    "farmer": "Agriculteur",
-    "allFarmers": "Tous les agriculteurs",
+    "category": "Domaine de production",
+    "allCategories": "Tous les domaines",
+    "producer": "Producteur",
+    "allProducers": "Tous les producteurs",
     "availability": "Disponibilité",
     "allAvailability": "Toutes",
-    "availableOnly": "Avec des produits disponibles",
     "price": "Prix (FCFA)",
     "minPrice": "Prix minimum",
     "maxPrice": "Prix maximum",
@@ -339,7 +395,7 @@
     "updating": "Mise à jour des résultats…",
     "empty": {
       "title": "Aucun résultat",
-      "farmers": "Aucun agriculteur ne correspond à ces critères. Essayez d'élargir votre recherche ou de réinitialiser les filtres.",
+      "producers": "Aucun producteur ne correspond à ces critères. Essayez d'élargir votre recherche ou de réinitialiser les filtres.",
       "products": "Aucun produit ne correspond à ces critères. Essayez d'élargir votre recherche ou de réinitialiser les filtres."
     }
   },
@@ -357,10 +413,10 @@
   },
   "favorites": {
     "title": "Mes favoris",
-    "intro": "Retrouvez les produits et les agriculteurs que vous avez mis de côté.",
+    "intro": "Retrouvez les producteurs que vous avez mis de côté.",
     "localNotice": "Vos favoris sont enregistrés uniquement dans ce navigateur, sur cet appareil. Ils ne sont liés à aucun compte et ne sont pas synchronisés.",
     "products": "Produits ({count})",
-    "farmers": "Agriculteurs ({count})",
+    "producers": "Producteurs ({count})",
     "add": "Ajouter {name} aux favoris",
     "remove": "Retirer {name} des favoris",
     "addShort": "Ajouter aux favoris",
@@ -369,19 +425,19 @@
     "loading": "Chargement de vos favoris…",
     "empty": {
       "title": "Aucun favori pour le moment",
-      "text": "Utilisez le bouton en forme de cœur sur un produit ou un agriculteur pour l'ajouter ici.",
+      "text": "Utilisez le bouton en forme de cœur sur le profil d'un producteur pour l'ajouter ici.",
       "products": "Aucun produit en favori.",
-      "farmers": "Aucun agriculteur en favori.",
-      "cta": "Parcourir les produits"
+      "producers": "Aucun producteur en favori.",
+      "cta": "Découvrir les producteurs"
     },
     "unavailable": "Les favoris nécessitent l'accès au stockage du navigateur, qui semble indisponible."
   },
   "about": {
     "title": "À propos d'AGRO-MARKS",
-    "intro": "AGRO-MARKS est un projet de place de marché agricole dont l'objectif est de rapprocher les consommateurs camerounais des femmes et des hommes qui produisent leur alimentation.",
+    "intro": "AGRO-MARKS est une plateforme de découverte des producteurs camerounais : agriculteurs et éleveurs y présentent leurs exploitations et leur manière de travailler.",
     "mission": {
       "title": "Notre mission",
-      "text": "Rendre visibles les agriculteurs, leurs exploitations et leurs méthodes de travail, afin que chacun puisse choisir ses produits en connaissant leur origine."
+      "text": "Rendre visibles les agriculteurs et les éleveurs, leurs exploitations et leurs méthodes de production, afin que chacun comprenne d'où vient son alimentation."
     },
     "values": {
       "title": "Nos principes",
@@ -391,26 +447,26 @@
       },
       "proximity": {
         "title": "Proximité",
-        "text": "Raccourcir la distance entre le champ et la table, région par région."
+        "text": "Rapprocher le public de celles et ceux qui cultivent et qui élèvent, région par région."
       },
       "quality": {
         "title": "Qualité",
-        "text": "Valoriser le savoir-faire, le tri et le soin apporté aux récoltes."
+        "text": "Valoriser le savoir-faire et le soin apporté aux cultures comme aux animaux."
       },
       "nature": {
         "title": "Respect de la nature",
-        "text": "Mettre en avant la diversité des cultures et le respect des saisons."
+        "text": "Mettre en avant la diversité des cultures et des élevages, et le respect des saisons."
       }
     },
     "status": {
       "title": "Où en est le projet ?",
-      "text": "Ce site est une version de démonstration. Les producteurs, les prix et les témoignages sont fictifs. Les prochaines étapes prévoient l'intégration de véritables exploitations, un processus de vérification des informations et, à terme, des fonctionnalités de mise en relation."
+      "text": "Ce site est une version de démonstration. Les producteurs et les témoignages sont fictifs. AGRO-MARKS ne vend aucun produit : la plateforme présente des producteurs. Les prochaines étapes prévoient l'intégration de véritables exploitations et un processus de vérification des informations."
     },
-    "cta": "Découvrir les agriculteurs"
+    "cta": "Découvrir les producteurs"
   },
   "contact": {
     "title": "Contactez-nous",
-    "intro": "Vous êtes agriculteur, consommateur ou partenaire et souhaitez en savoir plus sur AGRO-MARKS ? Utilisez le formulaire ci-dessous.",
+    "intro": "Vous êtes agriculteur, éleveur, visiteur ou partenaire et souhaitez en savoir plus sur AGRO-MARKS ? Utilisez le formulaire ci-dessous.",
     "notice": "Aucun serveur d'envoi n'est configuré dans cette version : votre message est vérifié dans votre navigateur mais n'est pas transmis.",
     "detailsTitle": "Coordonnées",
     "detailsText": "Les coordonnées officielles (adresse, téléphone, e-mail) seront publiées lorsque la structure juridique d'AGRO-MARKS sera établie."
@@ -423,7 +479,7 @@
     "subjectPlaceholder": "Choisissez un objet",
     "subjects": {
       "general": "Question générale",
-      "farmer": "Je suis agriculteur",
+      "farmer": "Je suis producteur",
       "partnership": "Partenariat",
       "other": "Autre"
     },
@@ -453,30 +509,30 @@
     "items": {
       "what": {
         "question": "Qu'est-ce qu'AGRO-MARKS ?",
-        "answer": "AGRO-MARKS est une place de marché agricole en projet qui présente des agriculteurs camerounais, leurs exploitations, leurs méthodes de production et leurs produits."
+        "answer": "AGRO-MARKS est une plateforme de découverte qui présente des agriculteurs et des éleveurs camerounais, leurs exploitations, leurs méthodes de production et ce qu'ils produisent."
       },
       "order": {
-        "question": "Puis-je commander ou payer en ligne ?",
-        "answer": "Non. Cette version est une démonstration : aucune commande, aucun paiement et aucune livraison ne sont proposés."
+        "question": "Puis-je acheter des produits ou payer en ligne ?",
+        "answer": "Non. AGRO-MARKS n'est pas une boutique en ligne : aucune commande, aucun paiement et aucune livraison ne sont proposés sur la plateforme."
       },
-      "prices": {
-        "question": "Les prix affichés sont-ils réels ?",
-        "answer": "Non. Les prix sont indicatifs et fictifs. Ils sont exprimés en francs CFA (FCFA) pour illustrer le fonctionnement du catalogue."
+      "producerTypes": {
+        "question": "Quels types de producteurs sont présentés ?",
+        "answer": "La plateforme présente des agriculteurs, qui cultivent la terre, et des éleveurs, qui élèvent des volailles, des bovins, des porcs, des chèvres, des moutons, des poissons ou des abeilles. D'autres types de producteurs pourront être ajoutés."
       },
       "farmers": {
-        "question": "Les agriculteurs présentés existent-ils ?",
+        "question": "Les producteurs présentés existent-ils ?",
         "answer": "Les exploitations et les personnes présentées sont fictives. Elles s'inspirent de productions réellement présentes dans les régions du Cameroun."
       },
       "certification": {
-        "question": "Les pratiques agricoles sont-elles certifiées ?",
-        "answer": "Non. Les pratiques décrites sont présentées comme déclarées par les producteurs. Aucune certification ni aucun label n'est revendiqué dans cette version."
+        "question": "Les pratiques de production sont-elles certifiées ?",
+        "answer": "Non. Les pratiques décrites sont présentées comme déclarées par les producteurs. Aucune certification, aucun label ni aucune garantie sanitaire n'est revendiqué dans cette version."
       },
       "favorites": {
         "question": "Comment fonctionnent les favoris ?",
         "answer": "Les favoris sont enregistrés dans le stockage local de votre navigateur. Ils ne sont pas liés à un compte et disparaissent si vous effacez les données du site."
       },
       "join": {
-        "question": "Je suis agriculteur, comment rejoindre la plateforme ?",
+        "question": "Je suis agriculteur ou éleveur, comment rejoindre la plateforme ?",
         "answer": "Le processus d'inscription des producteurs n'est pas encore ouvert. Vous pouvez manifester votre intérêt via la page de contact ; notez que les messages ne sont pas encore transmis dans cette version."
       },
       "languages": {
@@ -550,8 +606,8 @@
     "notFound": {
       "title": "Page introuvable",
       "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
-      "products": "Parcourir les produits",
-      "farmers": "Voir les agriculteurs"
+      "producers": "Voir les producteurs",
+      "categories": "Explorer les domaines de production"
     },
     "generic": {
       "title": "Une erreur est survenue",
@@ -560,19 +616,19 @@
     }
   },
   "seo": {
-    "defaultTitle": "AGRO-MARKS — Marketplace agricole camerounaise",
-    "defaultDescription": "Découvrez les agriculteurs camerounais, leurs exploitations, leurs méthodes de production et leurs produits sur AGRO-MARKS.",
+    "defaultTitle": "AGRO-MARKS — Producteurs agricoles et éleveurs du Cameroun",
+    "defaultDescription": "Découvrez les agriculteurs et les éleveurs camerounais, leurs exploitations et leurs méthodes de production sur AGRO-MARKS.",
     "home": {
-      "title": "AGRO-MARKS — Produits agricoles et agriculteurs du Cameroun",
-      "description": "Marketplace agricole qui met en relation consommateurs et agriculteurs camerounais : profils de producteurs, méthodes de production et produits de saison."
+      "title": "AGRO-MARKS — Découvrir les producteurs du Cameroun",
+      "description": "Plateforme de découverte des agriculteurs et des éleveurs camerounais : profils de producteurs, domaines de production et méthodes expliquées étape par étape."
     },
-    "farmers": {
-      "title": "Agriculteurs et producteurs du Cameroun",
-      "description": "Annuaire des agriculteurs AGRO-MARKS : maraîchers, cacaoculteurs, apiculteurs et éleveurs, filtrables par région, spécialité et catégorie."
+    "producers": {
+      "title": "Producteurs du Cameroun : agriculteurs et éleveurs",
+      "description": "Annuaire des producteurs AGRO-MARKS : maraîchers, cacaoculteurs, éleveurs de bovins, de porcs et de volailles, pisciculteurs et apiculteurs, filtrables par type, région, ville et spécialité."
     },
-    "farmer": {
-      "title": "{farm} — {city}",
-      "description": "{tagline} Découvrez l'exploitation, son processus de production et ses produits."
+    "producer": {
+      "title": "{farm} — {type} à {city}",
+      "description": "{tagline} Découvrez l'exploitation, son activité et ses méthodes de production."
     },
     "products": {
       "title": "Catalogue des produits agricoles",
@@ -583,28 +639,28 @@
       "description": "{product} produit par {farm} ({city}). Origine, saisonnalité et prix indicatif."
     },
     "categories": {
-      "title": "Catégories de produits agricoles",
-      "description": "Parcourez les catégories de produits AGRO-MARKS : légumes, fruits, tubercules, céréales, cacao, café, épices, miel, œufs et volailles."
+      "title": "Domaines de production agricoles et d'élevage",
+      "description": "Explorez les domaines de production d'AGRO-MARKS — maraîchage, vergers, cultures vivrières et de rente, volailles, bovins, porcs, petits ruminants, pisciculture et apiculture — et les producteurs qui les pratiquent."
     },
     "category": {
-      "title": "{category} du Cameroun",
-      "description": "{summary} Produits proposés par des agriculteurs camerounais sur AGRO-MARKS."
+      "title": "{category} au Cameroun",
+      "description": "{summary} Découvrez les producteurs camerounais de ce domaine sur AGRO-MARKS."
     },
     "favorites": {
       "title": "Mes favoris",
-      "description": "Produits et agriculteurs enregistrés dans vos favoris sur AGRO-MARKS."
+      "description": "Producteurs enregistrés dans vos favoris sur AGRO-MARKS."
     },
     "about": {
       "title": "À propos",
-      "description": "La mission d'AGRO-MARKS : rapprocher les consommateurs des agriculteurs camerounais grâce à la transparence sur les produits et les méthodes de production."
+      "description": "La mission d'AGRO-MARKS : faire découvrir les agriculteurs et les éleveurs camerounais et expliquer leurs méthodes de production."
     },
     "contact": {
       "title": "Contact",
-      "description": "Contactez l'équipe AGRO-MARKS pour une question, un partenariat ou pour présenter votre exploitation."
+      "description": "Contactez l'équipe AGRO-MARKS pour une question, un partenariat ou pour présenter votre exploitation agricole ou votre élevage."
     },
     "faq": {
       "title": "Questions fréquentes",
-      "description": "Réponses aux questions fréquentes sur AGRO-MARKS : commandes, prix, producteurs, pratiques agricoles et favoris."
+      "description": "Réponses aux questions fréquentes sur AGRO-MARKS : fonctionnement, producteurs présentés, pratiques de production et favoris."
     },
     "legal": {
       "title": "Mentions légales",
@@ -659,7 +715,14 @@
     "onions": "Oignons",
     "beekeeping": "Apiculture",
     "poultry": "Aviculture",
-    "avocado": "Avocat"
+    "avocado": "Avocat",
+    "beef-cattle": "Bovins viande",
+    "dairy": "Production laitière",
+    "pig-farming": "Élevage porcin",
+    "small-ruminants": "Petits ruminants",
+    "fish-farming": "Pisciculture",
+    "broiler-chickens": "Poulets de chair",
+    "duck-farming": "Élevage de canards"
   },
   "practices": {
     "agroforestry": "Agroforesterie",
@@ -673,16 +736,20 @@
     "integrated-pest-management": "Lutte intégrée contre les ravageurs",
     "free-range": "Accès à un parcours extérieur",
     "seed-saving": "Semences conservées à la ferme",
-    "sun-drying": "Séchage au soleil"
+    "sun-drying": "Séchage au soleil",
+    "rotational-grazing": "Pâturage tournant",
+    "fodder-crops": "Cultures fourragères",
+    "on-farm-feed": "Aliment préparé à la ferme",
+    "water-quality-monitoring": "Suivi de la qualité de l'eau"
   },
   "whatsapp": {
     "cta": "Discuter sur WhatsApp",
     "opensExternally": "(ouvre WhatsApp dans un nouvel onglet)",
-    "farmerNote": "Vous serez redirigé vers WhatsApp avec un message prérempli, modifiable avant l'envoi.",
+    "producerNote": "Vous serez redirigé vers WhatsApp avec un message prérempli, modifiable avant l'envoi.",
     "platformNote": "Votre message est adressé à l'équipe AGRO-MARKS, qui vous met en relation avec {farm}. Il est prérempli et modifiable avant l'envoi.",
     "unavailable": "Le contact WhatsApp n'est pas encore configuré dans cette version de démonstration.",
     "productMessage": "Bonjour {farm}, je suis intéressé(e) par votre produit « {product} » ({price} / {unit}) vu sur AGRO-MARKS : {url}. Est-il disponible ?",
-    "farmerMessage": "Bonjour {farm}, j'ai découvert votre exploitation sur AGRO-MARKS ({url}) et j'aimerais en savoir plus sur vos produits."
+    "producerMessage": "Bonjour {farm}, j'ai découvert votre exploitation sur AGRO-MARKS ({url}) et j'aimerais en savoir plus sur votre activité."
   },
   "auth": {
     "notice": "Simulation de démonstration : le compte est enregistré uniquement dans ce navigateur (localStorage). Aucune donnée n'est envoyée à un serveur ; n'utilisez pas un vrai mot de passe.",
@@ -699,7 +766,7 @@
     },
     "roles": {
       "consumer": "Consommateur",
-      "farmer": "Agriculteur"
+      "farmer": "Producteur"
     },
     "register": {
       "title": "Créer un compte",

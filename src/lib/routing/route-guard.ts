@@ -3,7 +3,7 @@ import { slugCollections, type SlugCollection, type SlugIndex } from "@/reposito
 
 export const NOT_FOUND_SEGMENT = "page-not-found";
 
-const staticSections = new Set(["farmers", "products", "categories", "favorites", "about", "contact", "faq", "legal", "privacy", "login", "register", "account", NOT_FOUND_SEGMENT]);
+const staticSections = new Set(["producers", "products", "categories", "favorites", "about", "contact", "faq", "legal", "privacy", "login", "register", "account", NOT_FOUND_SEGMENT]);
 
 export type RouteCheck =
   | { readonly status: "pass" }

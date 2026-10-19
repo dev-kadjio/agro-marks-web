@@ -22,7 +22,7 @@ import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo/json-ld";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { localizedUrl } from "@/lib/seo/urls";
 import { resolveWhatsAppContact } from "@/lib/whatsapp";
-import { farmerService, productService } from "@/services";
+import { producerService, productService } from "@/services";
 
 export const instant = false;
 
@@ -40,9 +40,10 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/products
   return buildPageMetadata({
     locale,
     path: `/products/${product.slug}`,
-    title: t("product.title", { product: product.name, farm: product.farmer.farmName }),
-    description: t("product.description", { product: product.name, farm: product.farmer.farmName, city: product.farmer.city }),
+    title: t("product.title", { product: product.name, farm: product.producer.farmName }),
+    description: t("product.description", { product: product.name, farm: product.producer.farmName, city: product.producer.city }),
     image: product.photo,
+    noIndex: true,
   });
 }
 
@@ -52,14 +53,14 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
   if (!product) {
     notFound();
   }
-  const [t, format, farmer, similar] = await Promise.all([
+  const [t, format, producer, similar] = await Promise.all([
     getTranslations(),
     getFormatter(),
-    farmerService.getFarmerProfile(locale, product.farmer.slug),
+    producerService.getProducerProfile(locale, product.producer.slug),
     productService.listSimilarProducts(locale, product.slug, 4),
   ]);
   const whatsappMessage = t("whatsapp.productMessage", {
-    farm: product.farmer.farmName,
+    farm: product.producer.farmName,
     product: product.name,
     price: format.number(product.price.amount, { style: "currency", currency: product.price.currency, maximumFractionDigits: 0 }),
     unit: t(`products.units.${product.unit}`),
@@ -85,8 +86,8 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{product.name}</h1>
             <p className="mt-3 flex items-center gap-1.5 text-sm text-muted">
               <MapPin aria-hidden="true" className="size-4 text-gold" />
-              {t("products.card.by", { farm: product.farmer.farmName })} ·{" "}
-              {t("farmers.profile.location", { city: product.farmer.city, region: t(`regions.${product.farmer.regionId}`) })}
+              {t("products.card.by", { farm: product.producer.farmName })} ·{" "}
+              {t("producers.profile.location", { city: product.producer.city, region: t(`regions.${product.producer.regionId}`) })}
             </p>
             <p className="mt-6 text-base leading-relaxed text-ink">{product.description}</p>
 
@@ -112,15 +113,15 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
 
             <div className="mt-6">
               <WhatsAppContact
-                contact={resolveWhatsAppContact(product.farmer.whatsappNumber, contactConfig.platformWhatsAppNumber)}
+                contact={resolveWhatsAppContact(product.producer.whatsappNumber, contactConfig.platformWhatsAppNumber)}
                 message={whatsappMessage}
-                farmName={product.farmer.farmName}
+                farmName={product.producer.farmName}
               />
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <FavoriteButton kind="product" id={product.id} name={product.name} variant="labelled" />
-              <Link href={`/farmers/${product.farmer.slug}`} className={buttonClasses({ variant: "secondary" })}>
+              <Link href={`/producers/${product.producer.slug}`} className={buttonClasses({ variant: "secondary" })}>
                 {t("products.detail.viewProducer")}
               </Link>
             </div>
@@ -138,20 +139,20 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
         </div>
       </Container>
 
-      {farmer ? (
+      {producer ? (
         <section aria-labelledby="producer-title" className="bg-cream py-14 sm:py-16">
           <Container className="grid items-center gap-8 md:grid-cols-[18rem_1fr]">
             <div className="relative aspect-4/3 overflow-hidden rounded-card bg-white">
-              <Image src={farmer.photo.src} alt={farmer.photo.alt} fill sizes="(min-width: 768px) 18rem, 100vw" className="object-cover" />
+              <Image src={producer.photo.src} alt={producer.photo.alt} fill sizes="(min-width: 768px) 18rem, 100vw" className="object-cover" />
             </div>
             <div>
               <p className="text-sm font-medium text-gold">{t("products.detail.producer")}</p>
               <h2 id="producer-title" className="mt-2 text-2xl font-semibold text-ink">
-                {farmer.farmName}
+                {producer.farmName}
               </h2>
-              <p className="mt-1 text-sm text-muted">{t("farmers.profile.producer", { name: farmer.producerName })}</p>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{farmer.presentation}</p>
-              <Link href={`/farmers/${farmer.slug}`} className={`${linkClasses} mt-5 inline-flex min-h-11 items-center gap-2`}>
+              <p className="mt-1 text-sm text-muted">{t("producers.profile.runBy", { name: producer.producerName })}</p>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{producer.presentation}</p>
+              <Link href={`/producers/${producer.slug}`} className={`${linkClasses} mt-5 inline-flex min-h-11 items-center gap-2`}>
                 {t("products.detail.viewProducer")}
                 <ArrowRight aria-hidden="true" className="size-4" />
               </Link>

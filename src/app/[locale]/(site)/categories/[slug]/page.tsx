@@ -2,7 +2,8 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
-import { ProductCatalog } from "@/components/products/product-catalog";
+import { ProducerDirectory } from "@/components/producers/producer-directory";
+import { ProducerTypeBadge } from "@/components/producers/producer-type-badge";
 import { JsonLdScript } from "@/components/seo/json-ld-script";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Container } from "@/components/ui/container";
@@ -53,6 +54,10 @@ export default async function CategoryPage({ params, searchParams }: PageProps<"
   return (
     <>
       <PageHeader title={category.name} intro={category.introduction} breadcrumbs={<Breadcrumbs items={crumbs} />}>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <ProducerTypeBadge type={category.producerType} className="bg-white" />
+          <span className="text-sm font-medium text-forest">{t("categories.card.producerCount", { count: category.producerCount })}</span>
+        </div>
         <nav aria-labelledby="other-categories" className="mt-6">
           <h2 id="other-categories" className="text-sm font-medium text-ink">
             {t("categories.detail.otherCategories")}
@@ -69,9 +74,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps<"
         </nav>
       </PageHeader>
       <Container className="py-10 sm:py-14">
-        <h2 className="sr-only">{t("categories.detail.productsTitle")}</h2>
+        <h2 className="sr-only">{t("categories.detail.producersTitle")}</h2>
         <Suspense fallback={<ResultsSkeleton count={6} />}>
-          <ProductCatalog basePath={`/categories/${category.slug}`} searchParams={searchParams} lockedCategoryId={category.id} />
+          <ProducerDirectory basePath={`/categories/${category.slug}`} searchParams={searchParams} lockedCategoryId={category.id} />
         </Suspense>
       </Container>
       <JsonLdScript data={breadcrumbJsonLd(locale, crumbs)} />

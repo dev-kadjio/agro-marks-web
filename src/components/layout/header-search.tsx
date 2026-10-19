@@ -8,7 +8,7 @@ export function SearchShortcut() {
   const t = useTranslations("navigation.search");
   return (
     <Link
-      href="/products#product-filter-q"
+      href="/producers#producer-filter-q"
       aria-label={t("label")}
       className="hidden size-11 items-center justify-center rounded-full text-forest transition-colors hover:bg-cream lg:inline-flex xl:hidden"
     >

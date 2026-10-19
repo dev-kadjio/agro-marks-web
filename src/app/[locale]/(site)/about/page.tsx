@@ -65,7 +65,7 @@ export default async function AboutPage() {
             {t("status.title")}
           </h2>
           <Notice className="mt-4">{t("status.text")}</Notice>
-          <Link href="/farmers" className={buttonClasses({ className: "mt-8" })}>
+          <Link href="/producers" className={buttonClasses({ className: "mt-8" })}>
             {t("cta")}
           </Link>
         </section>

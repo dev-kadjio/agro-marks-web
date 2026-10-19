@@ -37,7 +37,7 @@ export function ProductCard({ product, headingLevel = "h3" }: { product: Product
           </Link>
         </Heading>
         <p className="mt-1 text-sm text-muted">
-          {t("by", { farm: product.farmer.farmName })} · {product.farmer.city}
+          {t("by", { farm: product.producer.farmName })} · {product.producer.city}
         </p>
         <div className="mt-auto flex flex-wrap items-end justify-between gap-2 pt-4">
           <PriceTag price={product.price} unit={product.unit} />

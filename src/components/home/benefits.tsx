@@ -1,11 +1,11 @@
-import { CalendarDays, HandHeart, MapPin, Sprout } from "lucide-react";
+import { CalendarDays, HandHeart, Layers, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Section } from "@/components/ui/section";
 
 const items = [
-  { key: "freshness", Icon: Sprout },
   { key: "origin", Icon: MapPin },
-  { key: "income", Icon: HandHeart },
+  { key: "knowHow", Icon: HandHeart },
+  { key: "diversity", Icon: Layers },
   { key: "seasons", Icon: CalendarDays },
 ] as const;
 

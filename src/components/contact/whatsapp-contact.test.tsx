@@ -6,7 +6,7 @@ import { WhatsAppContact } from "./whatsapp-contact";
 describe("WhatsAppContact", () => {
   it("links to WhatsApp with the pre-filled message", () => {
     renderWithProviders(
-      <WhatsAppContact contact={{ channel: "farmer", number: "237699001122" }} message="Bonjour, est-il disponible ?" farmName="Ndop Valley Farm" />,
+      <WhatsAppContact contact={{ channel: "producer", number: "237699001122" }} message="Bonjour, est-il disponible ?" farmName="Ndop Valley Farm" />,
     );
     const link = screen.getByRole("link", { name: /Discuter sur WhatsApp/ });
     expect(link).toHaveAttribute("href", "https://wa.me/237699001122?text=Bonjour%2C%20est-il%20disponible%20%3F");

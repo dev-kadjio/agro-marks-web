@@ -1,0 +1,223 @@
+import { months } from "@/domain/calendar";
+import type { ProducedItem } from "@/domain/produced-item";
+import { text } from "../helpers";
+import { photo } from "../photos";
+
+export const livestockProductions: readonly ProducedItem[] = [
+  {
+    id: "item-001",
+    name: text("Œufs frais", "Fresh eggs"),
+    description: text(
+      "Œufs de poules ayant accès à un parcours extérieur, ramassés deux fois par jour puis mirés et triés.",
+      "Eggs from hens with access to an outdoor run, collected twice a day, then candled and sorted.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-06",
+    image: photo("eggs-basket"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-002",
+    name: text("Poulets à croissance lente", "Slow-growing chickens"),
+    description: text(
+      "Poulets élevés au sol avec accès extérieur, sur un cycle plus long que les poulets de chair standards.",
+      "Chickens raised on the ground with outdoor access, over a longer cycle than standard broilers.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-06",
+    image: photo("hens-chicks-cameroon"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-003",
+    name: text("Bovins de boucherie", "Beef cattle"),
+    description: text(
+      "Jeunes zébus Goudali élevés au pâturage pendant deux à trois ans après le sevrage.",
+      "Young Gudali zebu raised on pasture for two to three years after weaning.",
+    ),
+    categoryId: "cattle-farming",
+    producerId: "producer-15",
+    image: photo("zebu-head-cameroon"),
+    harvestMonths: [],
+  },
+  {
+    id: "item-004",
+    name: text("Lait caillé", "Soured milk"),
+    description: text(
+      "Lait de traite du matin, caillé de façon traditionnelle et consommé dans la concession.",
+      "Morning milk, soured the traditional way and consumed on the compound.",
+    ),
+    categoryId: "cattle-farming",
+    producerId: "producer-15",
+    image: photo("zebu-cameroon"),
+    harvestMonths: [5, 6, 7, 8, 9, 10],
+  },
+  {
+    id: "item-005",
+    name: text("Lait frais", "Fresh milk"),
+    description: text(
+      "Lait trait à la main deux fois par jour, filtré et refroidi dans l'heure.",
+      "Milk drawn by hand twice a day, filtered and cooled within the hour.",
+    ),
+    categoryId: "cattle-farming",
+    producerId: "producer-16",
+    image: photo("fulani-milk"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-006",
+    name: text("Yaourt nature", "Plain yoghurt"),
+    description: text(
+      "Yaourt préparé à la ferme à partir du lait du troupeau, sans arôme ajouté.",
+      "Yoghurt made on the farm from the herd's milk, with no added flavouring.",
+    ),
+    categoryId: "cattle-farming",
+    producerId: "producer-16",
+    image: photo("zebu-herd-mbororo"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-007",
+    name: text("Porcelets sevrés", "Weaned piglets"),
+    description: text(
+      "Porcelets nés sur la ferme et sevrés vers sept semaines, destinés à l'engraissement.",
+      "Piglets born on the farm and weaned at around seven weeks, raised on for finishing.",
+    ),
+    categoryId: "pig-farming",
+    producerId: "producer-17",
+    image: photo("pig-farming-cameroon"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-008",
+    name: text("Porcs charcutiers", "Finishing pigs"),
+    description: text(
+      "Porcs élevés par lots de même âge pendant six à sept mois avec une provende préparée sur place.",
+      "Pigs raised in same-age groups for six to seven months on feed mixed on site.",
+    ),
+    categoryId: "pig-farming",
+    producerId: "producer-17",
+    image: photo("white-sow"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-009",
+    name: text("Moutons peuls", "Fulani sheep"),
+    description: text(
+      "Moutons à poil ras élevés au pâturage, dont de jeunes béliers préparés pour la Tabaski.",
+      "Short-haired sheep raised on pasture, including young rams prepared for Tabaski.",
+    ),
+    categoryId: "goat-sheep-farming",
+    producerId: "producer-18",
+    image: photo("goats-cameroon-voa"),
+    harvestMonths: [],
+  },
+  {
+    id: "item-010",
+    name: text("Chevreaux", "Kids"),
+    description: text(
+      "Jeunes chèvres de race locale nées après les premières pluies.",
+      "Young goats of a local breed born after the first rains.",
+    ),
+    categoryId: "goat-sheep-farming",
+    producerId: "producer-18",
+    image: photo("goat-cameroun-2"),
+    harvestMonths: [6, 7, 8],
+  },
+  {
+    id: "item-011",
+    name: text("Tilapia du Nil", "Nile tilapia"),
+    description: text(
+      "Tilapias élevés environ six mois en étang en terre et pêchés à la senne.",
+      "Tilapia raised for about six months in earthen ponds and harvested with a seine net.",
+    ),
+    categoryId: "fish-farming",
+    producerId: "producer-19",
+    image: photo("tilapia-fingerlings"),
+    harvestMonths: [6, 12],
+  },
+  {
+    id: "item-012",
+    name: text("Silure fumé", "Smoked catfish"),
+    description: text(
+      "Silures élevés en bacs, puis fumés au four traditionnel pour une meilleure conservation.",
+      "Catfish raised in tanks, then smoked in a traditional oven so they keep longer.",
+    ),
+    categoryId: "fish-farming",
+    producerId: "producer-19",
+    image: photo("catfish-harvest"),
+    harvestMonths: [3, 9],
+  },
+  {
+    id: "item-013",
+    name: text("Poulets de chair", "Broiler chickens"),
+    description: text(
+      "Poulets élevés au sol pendant six à sept semaines, par bandes d'environ mille cinq cents oiseaux.",
+      "Chickens raised on the floor for six to seven weeks in flocks of about one thousand five hundred birds.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-20",
+    image: photo("poultry-farm-moungo"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-014",
+    name: text("Litière compostée", "Composted litter"),
+    description: text(
+      "Litière de copeaux et fientes compostées après chaque bande, utilisée par les maraîchers voisins.",
+      "Wood-shaving litter and droppings composted after each flock and used by nearby market gardeners.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-20",
+    image: photo("manure-compost"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-015",
+    name: text("Poulets de chair", "Broiler chickens"),
+    description: text(
+      "Poulets élevés au sol pendant six à sept semaines, avec une nouvelle bande lancée toutes les quatre semaines.",
+      "Chickens raised on the floor for six to seven weeks, with a new flock started every four weeks.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-21",
+    image: photo("one-month-broilers"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-016",
+    name: text("Fumier de volaille composté", "Composted poultry manure"),
+    description: text(
+      "Litière usagée compostée avec des résidus de culture après chaque bande.",
+      "Used litter composted with crop residues after each flock.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-21",
+    image: photo("manure-compost"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-017",
+    name: text("Canards de Barbarie", "Muscovy ducks"),
+    description: text(
+      "Canards élevés en semi-liberté pendant dix à douze semaines, entre parcours herbeux et mare.",
+      "Ducks raised free-range for ten to twelve weeks, between a grassy run and a pond.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-22",
+    image: photo("ducks-water-cameroon"),
+    harvestMonths: months,
+  },
+  {
+    id: "item-018",
+    name: text("Canetons", "Ducklings"),
+    description: text(
+      "Canetons issus de la couvaison naturelle des canes de l'élevage, surtout pendant la saison des pluies.",
+      "Ducklings hatched naturally by the farm's own ducks, mostly during the rainy season.",
+    ),
+    categoryId: "poultry-farming",
+    producerId: "producer-22",
+    image: photo("duck-ducklings"),
+    harvestMonths: [4, 5, 6, 7, 8, 9],
+  },
+];

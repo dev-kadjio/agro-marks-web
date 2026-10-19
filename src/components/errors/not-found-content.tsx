@@ -14,11 +14,11 @@ export function NotFoundContent() {
         <Link href="/" className={buttonClasses()}>
           {t("common.backHome")}
         </Link>
-        <Link href="/products" className={buttonClasses({ variant: "secondary" })}>
-          {t("errors.notFound.products")}
+        <Link href="/producers" className={buttonClasses({ variant: "secondary" })}>
+          {t("errors.notFound.producers")}
         </Link>
-        <Link href="/farmers" className={buttonClasses({ variant: "secondary" })}>
-          {t("errors.notFound.farmers")}
+        <Link href="/categories" className={buttonClasses({ variant: "secondary" })}>
+          {t("errors.notFound.categories")}
         </Link>
       </div>
     </Container>

@@ -1,7 +1,6 @@
 import type { Month } from "./calendar";
-import type { CategoryId } from "./category";
-import type { LocalizedText } from "./locale";
 import type { ImageAsset } from "./media";
+import type { ProducedItem } from "./produced-item";
 
 export const currencies = ["XAF"] as const;
 
@@ -40,19 +39,12 @@ export type ProductAvailability =
 
 export type AvailabilityStatus = ProductAvailability["status"];
 
-export interface Product {
-  readonly id: string;
+export interface Product extends ProducedItem {
   readonly slug: string;
-  readonly name: LocalizedText;
-  readonly description: LocalizedText;
-  readonly categoryId: CategoryId;
-  readonly farmerId: string;
-  readonly image: ImageAsset;
   readonly gallery: readonly ImageAsset[];
   readonly price: Money;
   readonly unit: SaleUnit;
   readonly availability: ProductAvailability;
-  readonly harvestMonths: readonly Month[];
   readonly listedAt: string;
   readonly popularity: number;
   readonly featured: boolean;

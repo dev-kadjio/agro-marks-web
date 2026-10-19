@@ -19,7 +19,7 @@ export function MainNav() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative inline-flex min-h-11 items-center rounded-full px-3 text-sm transition-colors",
+                  "relative inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-3 text-sm transition-colors",
                   active ? "font-medium text-forest" : "text-muted hover:text-forest",
                 )}
               >

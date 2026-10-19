@@ -37,7 +37,7 @@ export function FavoritesProvider({ children, store: providedStore }: { children
       favorites,
       hydrated,
       available: hydrated ? store.available : true,
-      count: favorites.product.length + favorites.farmer.length,
+      count: favorites.product.length + favorites.producer.length,
       isFavorite: (kind, id) => favorites[kind].includes(id),
       toggle: store.toggle,
       clear: store.clear,

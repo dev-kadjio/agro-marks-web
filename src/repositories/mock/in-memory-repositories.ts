@@ -1,19 +1,37 @@
 import type { Category, CategoryId } from "@/domain/category";
-import type { Farmer } from "@/domain/farmer";
 import type { EditorialSlot, ImageAsset, PhotoCredit } from "@/domain/media";
+import type { ProducedItem } from "@/domain/produced-item";
+import type { Producer } from "@/domain/producer";
 import type { Product } from "@/domain/product";
-import type { CategoryRepository, FarmerRepository, MediaRepository, ProductRepository } from "../contracts";
+import type {
+  CategoryRepository,
+  MediaRepository,
+  ProducedItemRepository,
+  ProducerRepository,
+  ProductRepository,
+} from "../contracts";
 
-export function createInMemoryFarmerRepository(farmers: readonly Farmer[]): FarmerRepository {
+export function createInMemoryProducerRepository(producers: readonly Producer[]): ProducerRepository {
   return {
     async findAll() {
-      return farmers;
+      return producers;
     },
     async findById(id) {
-      return farmers.find((farmer) => farmer.id === id) ?? null;
+      return producers.find((producer) => producer.id === id) ?? null;
     },
     async findBySlug(slug) {
-      return farmers.find((farmer) => farmer.slug === slug) ?? null;
+      return producers.find((producer) => producer.slug === slug) ?? null;
+    },
+  };
+}
+
+export function createInMemoryProducedItemRepository(items: readonly ProducedItem[]): ProducedItemRepository {
+  return {
+    async findAll() {
+      return items;
+    },
+    async findByProducerId(producerId) {
+      return items.filter((item) => item.producerId === producerId);
     },
   };
 }
@@ -26,8 +44,8 @@ export function createInMemoryProductRepository(products: readonly Product[]): P
     async findBySlug(slug) {
       return products.find((product) => product.slug === slug) ?? null;
     },
-    async findByFarmerId(farmerId) {
-      return products.filter((product) => product.farmerId === farmerId);
+    async findByProducerId(producerId) {
+      return products.filter((product) => product.producerId === producerId);
     },
     async findByCategoryId(categoryId: CategoryId) {
       return products.filter((product) => product.categoryId === categoryId);

@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { breadcrumbJsonLd } from "@/lib/seo/json-ld";
 import { staticPageMetadata } from "@/lib/seo/static-page";
 
-const questions = ["what", "order", "prices", "farmers", "certification", "favorites", "join", "languages"] as const;
+const questions = ["what", "order", "producerTypes", "farmers", "certification", "favorites", "join", "languages"] as const;
 
 export function generateMetadata() {
   return staticPageMetadata("faq");

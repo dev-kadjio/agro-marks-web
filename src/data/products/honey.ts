@@ -1,0 +1,66 @@
+import type { Product } from "@/domain/product";
+import { text } from "../helpers";
+import { photo } from "../photos";
+
+export const honeyProducts: readonly Product[] = [
+  {
+    id: "product-043",
+    slug: "miel-clair-de-l-adamaoua",
+    name: text("Miel de savane clair", "Light savannah honey"),
+    description: text(
+      "Miel de printemps au goût doux, extrait par pressage à froid et filtré. Pot en verre de 500 g.",
+      "Mild spring honey, cold pressed and filtered. 500 g glass jar.",
+    ),
+    categoryId: "beekeeping",
+    producerId: "producer-07",
+    image: photo("honey-jar"),
+    gallery: [photo("honeycomb-frame")],
+    price: { amount: 3500, currency: "XAF" },
+    unit: "jar-500g",
+    availability: { status: "in-stock" },
+    harvestMonths: [3, 4],
+    listedAt: "2026-04-20",
+    popularity: 85,
+    featured: true,
+  },
+  {
+    id: "product-044",
+    slug: "miel-ambre-de-l-adamaoua",
+    name: text("Miel ambré", "Amber honey"),
+    description: text(
+      "Miel de fin de saison des pluies, plus corsé et plus foncé. Pot de 1 kg, quantités limitées.",
+      "Honey from the end of the rainy season, stronger and darker. 1 kg jar, limited quantities.",
+    ),
+    categoryId: "beekeeping",
+    producerId: "producer-07",
+    image: photo("honeycomb-frame"),
+    gallery: [photo("honey-jar")],
+    price: { amount: 6000, currency: "XAF" },
+    unit: "jar-1kg",
+    availability: { status: "limited" },
+    harvestMonths: [11],
+    listedAt: "2026-01-08",
+    popularity: 63,
+    featured: false,
+  },
+  {
+    id: "product-045",
+    slug: "cire-d-abeille-brute-de-l-adamaoua",
+    name: text("Cire d'abeille brute", "Raw beeswax"),
+    description: text(
+      "Pain de cire fondue et filtrée, pour l'artisanat et les cosmétiques faits maison. De nouveau disponible après la prochaine récolte.",
+      "Block of melted and filtered wax for crafts and homemade cosmetics. Available again after the next harvest.",
+    ),
+    categoryId: "beekeeping",
+    producerId: "producer-07",
+    image: photo("beekeeper-cameroon"),
+    gallery: [],
+    price: { amount: 2500, currency: "XAF" },
+    unit: "pack-250g",
+    availability: { status: "out-of-season", nextSeasonMonth: 11 },
+    harvestMonths: [3, 4, 11],
+    listedAt: "2026-04-22",
+    popularity: 22,
+    featured: false,
+  },
+];

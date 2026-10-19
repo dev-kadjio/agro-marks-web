@@ -37,7 +37,7 @@ export function WhatsAppContact({ contact, message, farmName }: WhatsAppContactP
         <span className="sr-only">{t("opensExternally")}</span>
       </a>
       <p className="text-xs leading-relaxed text-muted">
-        {contact.channel === "farmer" ? t("farmerNote") : t("platformNote", { farm: farmName })}
+        {contact.channel === "producer" ? t("producerNote") : t("platformNote", { farm: farmName })}
       </p>
     </div>
   );

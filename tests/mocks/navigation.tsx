@@ -12,6 +12,6 @@ export function Link({ href, children, locale, ...props }: AnchorHTMLAttributes<
   );
 }
 
-export const usePathname = () => "/farmers";
+export const usePathname = () => "/producers";
 export const useRouter = () => ({ replace: routerReplace, push: routerPush });
 export const getPathname = ({ href, locale }: { href: string; locale: string }) => `/${locale}${href}`;

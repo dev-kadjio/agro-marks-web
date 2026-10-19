@@ -4,7 +4,13 @@ import { cardClasses } from "@/components/ui/styles";
 import { Link } from "@/i18n/navigation";
 import type { CategorySummary } from "@/services/view-models";
 
-export function CategoryTiles({ categories, headingLevel = "h3" }: { categories: readonly CategorySummary[]; headingLevel?: "h2" | "h3" }) {
+interface CategoryTilesProps {
+  readonly categories: readonly CategorySummary[];
+  readonly headingLevel?: "h2" | "h3";
+  readonly showSummary?: boolean;
+}
+
+export function CategoryTiles({ categories, headingLevel = "h3", showSummary = false }: CategoryTilesProps) {
   const t = useTranslations("categories.card");
   const Heading = headingLevel;
   return (
@@ -30,7 +36,8 @@ export function CategoryTiles({ categories, headingLevel = "h3" }: { categories:
                   {category.name}
                 </Link>
               </Heading>
-              <p className="mt-1 text-sm text-muted">{t("productCount", { count: category.productCount })}</p>
+              {showSummary ? <p className="mt-1 hidden text-sm leading-relaxed text-muted sm:block">{category.summary}</p> : null}
+              <p className="mt-auto pt-2 text-sm font-medium text-forest">{t("producerCount", { count: category.producerCount })}</p>
             </div>
           </article>
         </li>

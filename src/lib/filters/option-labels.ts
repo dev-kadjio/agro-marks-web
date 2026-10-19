@@ -1,11 +1,12 @@
 import "server-only";
 import { getLocale, getTranslations } from "next-intl/server";
-import type { SpecialtyId } from "@/domain/farmer";
+import type { ProducerType, SpecialtyId } from "@/domain/producer";
 import type { RegionId } from "@/domain/region";
 import { availabilityFilterOptions, type AvailabilityFilter } from "@/services/filtering/criteria";
-import type { Option } from "@/services/view-models";
+import type { FacetValue } from "@/services/producer-service";
+import type { FacetOption, Option } from "@/services/view-models";
 
-function sortByLabel<T extends string>(options: Option<T>[], locale: string): Option<T>[] {
+function sortByLabel<T extends Option<string>>(options: T[], locale: string): T[] {
   return options.sort((a, b) => a.label.localeCompare(b.label, locale));
 }
 
@@ -21,6 +22,22 @@ export async function specialtyOptions(ids: readonly SpecialtyId[]): Promise<Opt
   const [t, locale] = await Promise.all([getTranslations("specialties"), getLocale()]);
   return sortByLabel(
     ids.map((id) => ({ value: id, label: t(id) })),
+    locale,
+  );
+}
+
+export async function producerTypeOptions(types: readonly ProducerType[]): Promise<Option<ProducerType>[]> {
+  const t = await getTranslations("producerTypes");
+  return types.map((type) => ({ value: type, label: t(type) }));
+}
+
+export async function facetOptions<T extends string>(
+  facets: readonly FacetValue<T>[],
+  label: (value: T) => string,
+): Promise<FacetOption<T>[]> {
+  const locale = await getLocale();
+  return sortByLabel(
+    facets.map((facet) => ({ ...facet, label: label(facet.value) })),
     locale,
   );
 }

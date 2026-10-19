@@ -15,7 +15,7 @@ export const PRODUCTS_PAGE_SIZE = 12;
 
 export interface ProductFilterOptions {
   readonly categories: readonly Option<CategoryId>[];
-  readonly farmers: readonly Option<string>[];
+  readonly producers: readonly Option<string>[];
   readonly regionIds: readonly RegionId[];
   readonly priceRange: { readonly min: number; readonly max: number };
 }
@@ -26,7 +26,7 @@ export interface ProductService {
   listFeaturedProducts(locale: Locale, limit: number): Promise<ProductSummary[]>;
   listPopularProducts(locale: Locale, limit: number, excludeIds?: readonly string[]): Promise<ProductSummary[]>;
   listSeasonalProducts(locale: Locale, month: Month, limit: number): Promise<ProductSummary[]>;
-  listFarmerProducts(locale: Locale, farmerId: string): Promise<ProductSummary[]>;
+  listProducerProducts(locale: Locale, producerId: string): Promise<ProductSummary[]>;
   listSimilarProducts(locale: Locale, slug: string, limit: number): Promise<ProductSummary[]>;
   listAllProducts(locale: Locale): Promise<ProductSummary[]>;
   getFilterOptions(locale: Locale, scope?: { categoryId?: CategoryId }): Promise<ProductFilterOptions>;
@@ -50,11 +50,11 @@ export function createProductService(deps: CatalogDependencies): ProductService 
       if (!product) {
         return null;
       }
-      const [farmer, category] = await Promise.all([
-        deps.farmers.findById(product.farmerId),
+      const [producer, category] = await Promise.all([
+        deps.producers.findById(product.producerId),
         deps.categories.findById(product.categoryId),
       ]);
-      return farmer && category ? toProductDetail(product, farmer, category, locale) : null;
+      return producer && category ? toProductDetail(product, producer, category, locale) : null;
     },
 
     async listFeaturedProducts(locale, limit) {
@@ -87,10 +87,10 @@ export function createProductService(deps: CatalogDependencies): ProductService 
         .slice(0, limit);
     },
 
-    async listFarmerProducts(locale, farmerId) {
+    async listProducerProducts(locale, producerId) {
       const index = await loadCatalogIndex(deps);
-      const farmerProducts = await deps.products.findByFarmerId(farmerId);
-      return summarizeProducts(index, farmerProducts, locale);
+      const producerProducts = await deps.products.findByProducerId(producerId);
+      return summarizeProducts(index, producerProducts, locale);
     },
 
     async listSimilarProducts(locale, slug, limit) {
@@ -103,7 +103,7 @@ export function createProductService(deps: CatalogDependencies): ProductService 
         .filter((product) => product.slug !== slug && product.categoryId === reference.categoryId)
         .sort(
           (a, b) =>
-            Number(b.farmer.id === reference.farmer.id) - Number(a.farmer.id === reference.farmer.id) ||
+            Number(b.producer.id === reference.producer.id) - Number(a.producer.id === reference.producer.id) ||
             b.popularity - a.popularity,
         )
         .slice(0, limit);
@@ -116,18 +116,18 @@ export function createProductService(deps: CatalogDependencies): ProductService 
       const scoped = scope?.categoryId
         ? index.products.filter((product) => product.categoryId === scope.categoryId)
         : index.products;
-      const farmerIds = new Set(scoped.map((product) => product.farmerId));
+      const producerIds = new Set(scoped.map((product) => product.producerId));
       const categoryIds = new Set(scoped.map((product) => product.categoryId));
-      const farmers = [...index.farmersById.values()].filter((farmer) => farmerIds.has(farmer.id));
+      const producers = [...index.producersById.values()].filter((producer) => producerIds.has(producer.id));
       const prices = scoped.map((product) => product.price.amount);
       return {
         categories: [...index.categoriesById.values()]
           .filter((category) => categoryIds.has(category.id))
           .map((category) => ({ value: category.id, label: localize(category.name, locale) })),
-        farmers: farmers
-          .map((farmer) => ({ value: farmer.slug, label: farmer.farmName }))
+        producers: producers
+          .map((producer) => ({ value: producer.slug, label: producer.farmName }))
           .sort((a, b) => a.label.localeCompare(b.label, locale)),
-        regionIds: [...new Set(farmers.map((farmer) => farmer.location.regionId))],
+        regionIds: [...new Set(producers.map((producer) => producer.location.regionId))],
         priceRange: {
           min: prices.length > 0 ? Math.min(...prices) : 0,
           max: prices.length > 0 ? Math.max(...prices) : 0,
