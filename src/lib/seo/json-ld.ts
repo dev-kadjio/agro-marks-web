@@ -1,7 +1,7 @@
 import { brand } from "@/config/brand";
 import { siteConfig } from "@/config/site";
 import type { Locale } from "@/domain/locale";
-import type { FarmerProfile, ProductDetail } from "@/services/view-models";
+import type { ProducerProfile, ProductDetail } from "@/services/view-models";
 import { absoluteUrl, localizedPath, localizedUrl } from "./urls";
 
 export type JsonLdObject = { readonly "@context": "https://schema.org" } & Readonly<Record<string, unknown>>;
@@ -37,7 +37,7 @@ export function websiteJsonLd(locale: Locale, description: string): JsonLdObject
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${absoluteUrl(localizedPath(locale, "/products"))}?q={search_term_string}`,
+        urlTemplate: `${absoluteUrl(localizedPath(locale, "/producers"))}?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },
@@ -66,25 +66,26 @@ export function productJsonLd(locale: Locale, product: ProductDetail): JsonLdObj
     image: product.gallery.map((photo) => absoluteUrl(photo.src)),
     category: product.categoryName,
     url: localizedUrl(locale, `/products/${product.slug}`),
-    brand: { "@type": "Brand", name: product.farmer.farmName },
+    brand: { "@type": "Brand", name: product.producer.farmName },
   };
 }
 
-export function farmerJsonLd(locale: Locale, farmer: FarmerProfile, regionName: string): JsonLdObject {
+export function producerJsonLd(locale: Locale, producer: ProducerProfile, regionName: string): JsonLdObject {
+  const address = {
+    "@type": "PostalAddress",
+    addressLocality: producer.city,
+    addressRegion: regionName,
+    addressCountry: "CM",
+  };
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: farmer.producerName,
-    description: farmer.presentation,
-    image: absoluteUrl(farmer.photo.src),
-    url: localizedUrl(locale, `/farmers/${farmer.slug}`),
-    jobTitle: farmer.farmName,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: farmer.city,
-      addressRegion: regionName,
-      addressCountry: "CM",
-    },
+    name: producer.producerName,
+    description: producer.presentation,
+    image: absoluteUrl(producer.photo.src),
+    url: localizedUrl(locale, `/producers/${producer.slug}`),
+    address,
+    worksFor: { "@type": "Organization", name: producer.farmName, address },
   };
 }
 

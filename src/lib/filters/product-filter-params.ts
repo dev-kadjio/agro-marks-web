@@ -18,13 +18,13 @@ import {
   type RawSearchParams,
 } from "./search-params";
 
-export const productParamKeys = ["q", "category", "farmer", "region", "min", "max", "availability", "sort", "page"] as const;
+export const productParamKeys = ["q", "category", "producer", "region", "min", "max", "availability", "sort", "page"] as const;
 
-function productParamsSchema(farmerSlugs: ReadonlySet<string>) {
+function productParamsSchema(producerSlugs: ReadonlySet<string>) {
   return z.object({
     q: queryParam,
     category: enumParam(categoryIds),
-    farmer: allowedParam(farmerSlugs),
+    producer: allowedParam(producerSlugs),
     region: enumParam(regionIds),
     min: priceParam,
     max: priceParam,
@@ -34,8 +34,8 @@ function productParamsSchema(farmerSlugs: ReadonlySet<string>) {
   });
 }
 
-export function parseProductFilters(params: RawSearchParams, farmerSlugs: ReadonlySet<string>): ProductFilterCriteria {
-  const parsed = productParamsSchema(farmerSlugs).parse(pickFirstValues(params, productParamKeys));
+export function parseProductFilters(params: RawSearchParams, producerSlugs: ReadonlySet<string>): ProductFilterCriteria {
+  const parsed = productParamsSchema(producerSlugs).parse(pickFirstValues(params, productParamKeys));
   const [minPrice, maxPrice] =
     parsed.min !== undefined && parsed.max !== undefined && parsed.min > parsed.max
       ? [parsed.max, parsed.min]
@@ -43,7 +43,7 @@ export function parseProductFilters(params: RawSearchParams, farmerSlugs: Readon
   return {
     query: parsed.q,
     categoryId: parsed.category,
-    farmerSlug: parsed.farmer,
+    producerSlug: parsed.producer,
     regionId: parsed.region,
     minPrice,
     maxPrice,
@@ -57,7 +57,7 @@ export function serializeProductFilters(criteria: ProductFilterCriteria, options
   return toQueryString({
     q: criteria.query,
     category: options?.omitCategory ? undefined : criteria.categoryId,
-    farmer: criteria.farmerSlug,
+    producer: criteria.producerSlug,
     region: criteria.regionId,
     min: criteria.minPrice,
     max: criteria.maxPrice,
@@ -71,7 +71,7 @@ export function countActiveProductFilters(criteria: ProductFilterCriteria, optio
   return [
     criteria.query,
     options?.omitCategory ? undefined : criteria.categoryId,
-    criteria.farmerSlug,
+    criteria.producerSlug,
     criteria.regionId,
     criteria.minPrice,
     criteria.maxPrice,

@@ -8,7 +8,7 @@ import type { PhotoView } from "@/services/view-models";
 
 interface HeroProps {
   readonly photo: PhotoView;
-  readonly stats: { readonly farmers: number; readonly products: number; readonly regions: number };
+  readonly stats: { readonly producers: number; readonly categories: number; readonly regions: number };
 }
 
 export function Hero({ photo, stats }: HeroProps) {
@@ -23,20 +23,20 @@ export function Hero({ photo, stats }: HeroProps) {
             {t("title")}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{t("description")}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/products" className={buttonClasses({ size: "lg" })}>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href="/producers" className={buttonClasses({ size: "lg", className: "whitespace-nowrap" })}>
               {t("primaryCta")}
               <ArrowRight aria-hidden="true" className="size-4" />
             </Link>
-            <Link href="/farmers" className={buttonClasses({ variant: "secondary", size: "lg" })}>
+            <Link href="/categories" className={buttonClasses({ variant: "secondary", size: "lg", className: "whitespace-nowrap" })}>
               {t("secondaryCta")}
             </Link>
           </div>
-          <dl aria-label={t("stats.label")} className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-line pt-6">
-            {(["farmers", "products", "regions"] as const).map((key) => (
-              <div key={key} className="flex flex-col-reverse">
-                <dt className="text-sm text-muted">{t(`stats.${key}`, { count: stats[key] })}</dt>
-                <dd className="text-2xl font-semibold text-forest">{format.number(stats[key])}</dd>
+          <dl aria-label={t("stats.label")} className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-line pt-6">
+            {(["producers", "categories", "regions"] as const).map((key) => (
+              <div key={key} className="flex flex-col">
+                <dt className="text-sm leading-snug text-muted">{t(`stats.${key}`, { count: stats[key] })}</dt>
+                <dd className="order-first text-2xl font-semibold text-forest">{format.number(stats[key])}</dd>
               </div>
             ))}
           </dl>

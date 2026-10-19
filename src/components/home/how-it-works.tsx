@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Section } from "@/components/ui/section";
 
-const steps = ["discover", "understand", "choose"] as const;
+const steps = ["discover", "understand", "connect"] as const;
 
 export function HowItWorks() {
   const t = useTranslations("home.howItWorks");

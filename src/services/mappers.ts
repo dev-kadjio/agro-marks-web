@@ -1,21 +1,22 @@
-import type { Category } from "@/domain/category";
-import type { Farmer } from "@/domain/farmer";
+import type { Category, CategoryId } from "@/domain/category";
 import type { Locale } from "@/domain/locale";
 import type { ImageAsset } from "@/domain/media";
-import type { ProductionProcess, ProductionStep } from "@/domain/production";
-import { isCurrentlyAvailable, type Product } from "@/domain/product";
+import type { ProducedItem } from "@/domain/produced-item";
+import type { Producer } from "@/domain/producer";
+import type { ProductionProcess } from "@/domain/production";
+import type { Product } from "@/domain/product";
 import { normalizeWhatsAppNumber } from "@/lib/whatsapp";
 import { buildSearchText } from "./filtering/text-search";
 import { allTranslations, localize } from "./localization";
 import type {
   CategoryDetail,
   CategorySummary,
-  FarmerProfile,
-  FarmerSummary,
   PhotoView,
+  ProducedItemView,
+  ProducerProfile,
+  ProducerSummary,
   ProductDetail,
-  ProductionStageKey,
-  ProductionStageView,
+  ProductionView,
   ProductSummary,
 } from "./view-models";
 
@@ -23,100 +24,84 @@ export function toPhotoView(image: ImageAsset, locale: Locale): PhotoView {
   return { src: image.src, width: image.width, height: image.height, alt: localize(image.alt, locale) };
 }
 
-export function toFarmerSummary(farmer: Farmer, farmerProducts: readonly Product[], locale: Locale): FarmerSummary {
-  const categoryIds = [...new Set(farmerProducts.map((product) => product.categoryId))];
+export function toProducerSummary(producer: Producer, items: readonly ProducedItem[], locale: Locale): ProducerSummary {
   return {
-    id: farmer.id,
-    slug: farmer.slug,
-    farmName: farmer.farmName,
-    producerName: farmer.producerName,
-    tagline: localize(farmer.tagline, locale),
-    city: farmer.location.city,
-    regionId: farmer.location.regionId,
-    specialtyIds: farmer.specialtyIds,
-    categoryIds,
-    productCount: farmerProducts.length,
-    hasAvailableProducts: farmerProducts.some((product) => isCurrentlyAvailable(product.availability)),
-    featured: farmer.featured,
-    photo: toPhotoView(farmer.coverImage, locale),
-    whatsappNumber: normalizeWhatsAppNumber(farmer.whatsappNumber),
+    id: producer.id,
+    slug: producer.slug,
+    type: producer.type,
+    farmName: producer.farmName,
+    producerName: producer.producerName,
+    tagline: localize(producer.tagline, locale),
+    city: producer.location.city,
+    regionId: producer.location.regionId,
+    specialtyIds: producer.specialtyIds,
+    categoryIds: [...new Set(items.map((item) => item.categoryId))],
+    featured: producer.featured,
+    photo: toPhotoView(producer.coverImage, locale),
+    whatsappNumber: normalizeWhatsAppNumber(producer.whatsappNumber),
     searchText: buildSearchText([
-      farmer.farmName,
-      farmer.producerName,
-      farmer.location.city,
-      ...farmer.specialtyIds,
-      ...allTranslations(farmer.tagline),
-      ...allTranslations(farmer.presentation),
-      ...farmerProducts.flatMap((product) => allTranslations(product.name)),
+      producer.farmName,
+      producer.producerName,
+      producer.location.city,
+      ...producer.specialtyIds,
+      ...allTranslations(producer.tagline),
+      ...allTranslations(producer.presentation),
+      ...items.flatMap((item) => allTranslations(item.name)),
+      ...(producer.type === "breeder" ? producer.livestock.map((group) => group.speciesId) : []),
     ]),
   };
 }
 
-function toStage(key: ProductionStageKey, step: ProductionStep | undefined, locale: Locale): ProductionStageView[] {
-  if (!step) {
-    return [];
-  }
-  const stage: ProductionStageView = {
-    key,
-    title: localize(step.title, locale),
-    description: localize(step.description, locale),
-  };
-  return [step.image ? { ...stage, photo: toPhotoView(step.image, locale) } : stage];
-}
-
-export function toProductionStages(process: ProductionProcess, locale: Locale): ProductionStageView[] {
-  switch (process.type) {
-    case "crop":
-      return [
-        ...toStage("soilPreparation", process.soilPreparation, locale),
-        ...toStage("sowingOrPlanting", process.sowingOrPlanting, locale),
-        ...toStage("cropCare", process.cropCare, locale),
-        ...toStage("irrigation", process.irrigation, locale),
-        ...toStage("cropProtection", process.cropProtection, locale),
-        ...toStage("harvest", process.harvest, locale),
-        ...toStage("postHarvest", process.postHarvest, locale),
-      ];
-    case "livestock":
-      return [
-        ...toStage("housing", process.housing, locale),
-        ...toStage("feeding", process.feeding, locale),
-        ...toStage("animalHealth", process.animalHealth, locale),
-        ...toStage("collection", process.collection, locale),
-        ...toStage("postHarvest", process.postHarvest, locale),
-      ];
-    case "beekeeping":
-      return [
-        ...toStage("apiarySetup", process.apiarySetup, locale),
-        ...toStage("colonyCare", process.colonyCare, locale),
-        ...toStage("harvest", process.harvest, locale),
-        ...toStage("postHarvest", process.postHarvest, locale),
-      ];
-  }
-}
-
-export function toFarmerProfile(farmer: Farmer, farmerProducts: readonly Product[], locale: Locale): FarmerProfile {
+export function toProductionView(process: ProductionProcess, coverSrc: string, locale: Locale): ProductionView {
   return {
-    ...toFarmerSummary(farmer, farmerProducts, locale),
-    presentation: localize(farmer.presentation, locale),
-    story: localize(farmer.story, locale),
-    practiceIds: farmer.practiceIds,
-    commitments: farmer.commitments.map((commitment) => localize(commitment, locale)),
-    productionType: farmer.production.type,
-    production: toProductionStages(farmer.production, locale).map((stage) =>
-      stage.photo?.src === farmer.coverImage.src ? { key: stage.key, title: stage.title, description: stage.description } : stage,
-    ),
-    gallery: farmer.gallery.map((image) => toPhotoView(image, locale)),
-    foundedYear: farmer.foundedYear,
-    areaHectares: farmer.areaHectares,
+    type: process.type,
+    stages: process.steps.map((step) => {
+      const stage = { key: step.stage, title: localize(step.title, locale), description: localize(step.description, locale) };
+      return step.image && step.image.src !== coverSrc ? { ...stage, photo: toPhotoView(step.image, locale) } : stage;
+    }),
   };
 }
 
-export function toProductSummary(
-  product: Product,
-  farmer: Farmer,
-  category: Category,
+export function toProducedItemView(item: ProducedItem, category: Category, locale: Locale): ProducedItemView {
+  return {
+    id: item.id,
+    name: localize(item.name, locale),
+    description: localize(item.description, locale),
+    categoryId: item.categoryId,
+    categoryName: localize(category.name, locale),
+    photo: toPhotoView(item.image, locale),
+    harvestMonths: item.harvestMonths,
+  };
+}
+
+export function toProducerProfile(
+  producer: Producer,
+  items: readonly ProducedItem[],
+  categoriesById: ReadonlyMap<CategoryId, Category>,
   locale: Locale,
-): ProductSummary {
+): ProducerProfile {
+  return {
+    ...toProducerSummary(producer, items, locale),
+    presentation: localize(producer.presentation, locale),
+    story: localize(producer.story, locale),
+    practiceIds: producer.practiceIds,
+    commitments: producer.commitments.map((commitment) => localize(commitment, locale)),
+    production: toProductionView(producer.production, producer.coverImage.src, locale),
+    livestock:
+      producer.type === "breeder"
+        ? producer.livestock.map((group) => ({ speciesId: group.speciesId, description: localize(group.description, locale) }))
+        : [],
+    outputs: items.flatMap((item) => {
+      const category = categoriesById.get(item.categoryId);
+      return category ? [toProducedItemView(item, category, locale)] : [];
+    }),
+    gallery: producer.gallery.map((image) => toPhotoView(image, locale)),
+    foundedYear: producer.foundedYear,
+    areaHectares: producer.areaHectares,
+  };
+}
+
+export function toProductSummary(product: Product, producer: Producer, category: Category, locale: Locale): ProductSummary {
   return {
     id: product.id,
     slug: product.slug,
@@ -124,13 +109,13 @@ export function toProductSummary(
     categoryId: product.categoryId,
     categorySlug: category.slug,
     categoryName: localize(category.name, locale),
-    farmer: {
-      id: farmer.id,
-      slug: farmer.slug,
-      farmName: farmer.farmName,
-      city: farmer.location.city,
-      regionId: farmer.location.regionId,
-      whatsappNumber: normalizeWhatsAppNumber(farmer.whatsappNumber),
+    producer: {
+      id: producer.id,
+      slug: producer.slug,
+      farmName: producer.farmName,
+      city: producer.location.city,
+      regionId: producer.location.regionId,
+      whatsappNumber: normalizeWhatsAppNumber(producer.whatsappNumber),
     },
     photo: toPhotoView(product.image, locale),
     price: product.price,
@@ -143,15 +128,15 @@ export function toProductSummary(
       ...allTranslations(product.name),
       ...allTranslations(product.description),
       ...allTranslations(category.name),
-      farmer.farmName,
-      farmer.location.city,
+      producer.farmName,
+      producer.location.city,
     ]),
   };
 }
 
-export function toProductDetail(product: Product, farmer: Farmer, category: Category, locale: Locale): ProductDetail {
+export function toProductDetail(product: Product, producer: Producer, category: Category, locale: Locale): ProductDetail {
   return {
-    ...toProductSummary(product, farmer, category, locale),
+    ...toProductSummary(product, producer, category, locale),
     description: localize(product.description, locale),
     gallery: [product.image, ...product.gallery]
       .filter((image, index, all) => all.findIndex((candidate) => candidate.src === image.src) === index)
@@ -160,20 +145,21 @@ export function toProductDetail(product: Product, farmer: Farmer, category: Cate
   };
 }
 
-export function toCategorySummary(category: Category, productCount: number, locale: Locale): CategorySummary {
+export function toCategorySummary(category: Category, producerCount: number, locale: Locale): CategorySummary {
   return {
     id: category.id,
     slug: category.slug,
+    producerType: category.producerType,
     name: localize(category.name, locale),
     summary: localize(category.summary, locale),
     photo: toPhotoView(category.image, locale),
-    productCount,
+    producerCount,
   };
 }
 
-export function toCategoryDetail(category: Category, productCount: number, locale: Locale): CategoryDetail {
+export function toCategoryDetail(category: Category, producerCount: number, locale: Locale): CategoryDetail {
   return {
-    ...toCategorySummary(category, productCount, locale),
+    ...toCategorySummary(category, producerCount, locale),
     introduction: localize(category.introduction, locale),
   };
 }

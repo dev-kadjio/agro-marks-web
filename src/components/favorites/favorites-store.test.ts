@@ -8,12 +8,12 @@ describe("favorites store", () => {
     expect(store.getServerSnapshot()).toBe(EMPTY_FAVORITES);
   });
 
-  it("toggles products and farmers and persists them", () => {
+  it("toggles products and producers and persists them", () => {
     const store = createFavoritesStore(window.localStorage);
     store.toggle("product", "product-001");
-    store.toggle("farmer", "farmer-01");
-    expect(store.getSnapshot()).toEqual({ product: ["product-001"], farmer: ["farmer-01"] });
-    expect(JSON.parse(window.localStorage.getItem(FAVORITES_STORAGE_KEY) ?? "{}")).toEqual({ product: ["product-001"], farmer: ["farmer-01"] });
+    store.toggle("producer", "producer-01");
+    expect(store.getSnapshot()).toEqual({ product: ["product-001"], producer: ["producer-01"] });
+    expect(JSON.parse(window.localStorage.getItem(FAVORITES_STORAGE_KEY) ?? "{}")).toEqual({ product: ["product-001"], producer: ["producer-01"] });
     store.toggle("product", "product-001");
     expect(store.getSnapshot().product).toEqual([]);
   });
@@ -28,7 +28,7 @@ describe("favorites store", () => {
     const store = createFavoritesStore(window.localStorage);
     const listener = vi.fn();
     const unsubscribe = store.subscribe(listener);
-    store.toggle("farmer", "farmer-02");
+    store.toggle("producer", "producer-02");
     store.clear();
     expect(listener).toHaveBeenCalledTimes(2);
     expect(store.getSnapshot()).toEqual(EMPTY_FAVORITES);
@@ -40,6 +40,14 @@ describe("favorites store", () => {
     expect(createFavoritesStore(window.localStorage).getSnapshot()).toEqual(EMPTY_FAVORITES);
     window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify({ product: [42, "ok"], farmer: "nope" }));
     expect(createFavoritesStore(window.localStorage).getSnapshot()).toEqual(EMPTY_FAVORITES);
+  });
+
+  it("migrates favourites saved with the legacy farmer key", () => {
+    window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify({ product: ["product-003"], farmer: ["farmer-04", "farmer-07"] }));
+    const store = createFavoritesStore(window.localStorage);
+    expect(store.getSnapshot()).toEqual({ product: ["product-003"], producer: ["producer-04", "producer-07"] });
+    store.toggle("producer", "producer-04");
+    expect(JSON.parse(window.localStorage.getItem(FAVORITES_STORAGE_KEY) ?? "{}")).toEqual({ product: ["product-003"], producer: ["producer-07"] });
   });
 
   it("works without storage", () => {

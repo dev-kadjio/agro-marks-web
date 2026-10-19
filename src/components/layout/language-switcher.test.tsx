@@ -8,19 +8,19 @@ import { LanguageSwitcher } from "./language-switcher";
 describe("LanguageSwitcher", () => {
   beforeEach(() => {
     routerReplace.mockClear();
-    window.history.replaceState(null, "", "/fr/farmers?region=west&page=2");
+    window.history.replaceState(null, "", "/fr/producers?type=breeder&region=west&page=2");
   });
 
   it("marks the current language", () => {
     renderWithProviders(<LanguageSwitcher />);
     expect(screen.getByRole("link", { name: "Français (langue actuelle)" })).toHaveAttribute("aria-current", "true");
-    expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", "/en/farmers");
+    expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", "/en/producers");
   });
 
   it("switches locale while keeping the page and its filters", async () => {
     const user = userEvent.setup();
     renderWithProviders(<LanguageSwitcher />);
     await user.click(screen.getByRole("link", { name: "English" }));
-    expect(routerReplace).toHaveBeenCalledWith("/farmers?region=west&page=2", { locale: "en", scroll: false });
+    expect(routerReplace).toHaveBeenCalledWith("/producers?type=breeder&region=west&page=2", { locale: "en", scroll: false });
   });
 });

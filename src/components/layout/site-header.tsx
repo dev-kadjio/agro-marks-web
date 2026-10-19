@@ -11,7 +11,7 @@ import { MobileMenu } from "./mobile-menu";
 
 export async function SiteHeader() {
   const locale = await getLocale();
-  const searchAction = getPathname({ href: "/products", locale });
+  const searchAction = getPathname({ href: "/producers", locale });
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white">
       <Container className="relative flex h-16 items-center gap-3 sm:h-18 lg:gap-6">

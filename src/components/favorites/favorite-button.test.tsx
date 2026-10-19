@@ -31,7 +31,7 @@ describe("FavoriteButton", () => {
   });
 
   it("is translated in English", () => {
-    renderWithProviders(<FavoriteButton kind="farmer" id="farmer-01" name="Ndop Valley Farm" variant="labelled" />, { locale: "en" });
+    renderWithProviders(<FavoriteButton kind="producer" id="producer-01" name="Ndop Valley Farm" variant="labelled" />, { locale: "en" });
     expect(screen.getByRole("button", { name: "Add to favourites" })).toBeInTheDocument();
   });
 });

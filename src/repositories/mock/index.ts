@@ -1,19 +1,22 @@
 import { categories } from "@/data/categories";
 import { editorialImages } from "@/data/editorial";
-import { farmers } from "@/data/farmers";
 import { listPhotoCredits } from "@/data/photos";
+import { producedItems } from "@/data/productions";
+import { producers } from "@/data/producers";
 import { products } from "@/data/products";
 import type { Repositories } from "../contracts";
 import {
   createInMemoryCategoryRepository,
-  createInMemoryFarmerRepository,
   createInMemoryMediaRepository,
+  createInMemoryProducedItemRepository,
+  createInMemoryProducerRepository,
   createInMemoryProductRepository,
 } from "./in-memory-repositories";
 
 export function createMockRepositories(): Repositories {
   return {
-    farmers: createInMemoryFarmerRepository(farmers),
+    producers: createInMemoryProducerRepository(producers),
+    producedItems: createInMemoryProducedItemRepository(producedItems),
     products: createInMemoryProductRepository(products),
     categories: createInMemoryCategoryRepository(categories),
     media: createInMemoryMediaRepository(listPhotoCredits(), editorialImages),

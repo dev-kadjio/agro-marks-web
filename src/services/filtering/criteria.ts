@@ -1,17 +1,18 @@
 import type { CategoryId } from "@/domain/category";
-import type { SpecialtyId } from "@/domain/farmer";
+import type { ProducerType, SpecialtyId } from "@/domain/producer";
 import type { RegionId } from "@/domain/region";
 
-export const farmerSortOptions = ["relevance", "name-asc", "name-desc"] as const;
-export type FarmerSort = (typeof farmerSortOptions)[number];
+export const producerSortOptions = ["relevance", "name-asc", "name-desc"] as const;
+export type ProducerSort = (typeof producerSortOptions)[number];
 
-export interface FarmerFilterCriteria {
+export interface ProducerFilterCriteria {
   readonly query?: string;
+  readonly type?: ProducerType;
   readonly regionId?: RegionId;
+  readonly city?: string;
   readonly specialtyId?: SpecialtyId;
   readonly categoryId?: CategoryId;
-  readonly availableOnly: boolean;
-  readonly sort: FarmerSort;
+  readonly sort: ProducerSort;
   readonly page: number;
 }
 
@@ -24,7 +25,7 @@ export type AvailabilityFilter = (typeof availabilityFilterOptions)[number];
 export interface ProductFilterCriteria {
   readonly query?: string;
   readonly categoryId?: CategoryId;
-  readonly farmerSlug?: string;
+  readonly producerSlug?: string;
   readonly regionId?: RegionId;
   readonly minPrice?: number;
   readonly maxPrice?: number;
@@ -33,8 +34,7 @@ export interface ProductFilterCriteria {
   readonly page: number;
 }
 
-export const defaultFarmerCriteria: FarmerFilterCriteria = {
-  availableOnly: false,
+export const defaultProducerCriteria: ProducerFilterCriteria = {
   sort: "relevance",
   page: 1,
 };

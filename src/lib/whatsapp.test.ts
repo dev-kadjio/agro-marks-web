@@ -20,8 +20,8 @@ describe("whatsapp", () => {
     );
   });
 
-  it("prefers the farmer, then the platform", () => {
-    expect(resolveWhatsAppContact("237611111111", "237622222222")).toEqual({ channel: "farmer", number: "237611111111" });
+  it("prefers the producer, then the platform", () => {
+    expect(resolveWhatsAppContact("237611111111", "237622222222")).toEqual({ channel: "producer", number: "237611111111" });
     expect(resolveWhatsAppContact(null, "237622222222")).toEqual({ channel: "platform", number: "237622222222" });
     expect(resolveWhatsAppContact(null, null)).toEqual({ channel: "unavailable" });
   });

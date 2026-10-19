@@ -13,13 +13,13 @@ export function buildWhatsAppUrl(number: string, message: string): string {
 }
 
 export type WhatsAppContact =
-  | { readonly channel: "farmer"; readonly number: string }
+  | { readonly channel: "producer"; readonly number: string }
   | { readonly channel: "platform"; readonly number: string }
   | { readonly channel: "unavailable" };
 
-export function resolveWhatsAppContact(farmerNumber: string | null, platformNumber: string | null): WhatsAppContact {
-  if (farmerNumber) {
-    return { channel: "farmer", number: farmerNumber };
+export function resolveWhatsAppContact(producerNumber: string | null, platformNumber: string | null): WhatsAppContact {
+  if (producerNumber) {
+    return { channel: "producer", number: producerNumber };
   }
   if (platformNumber) {
     return { channel: "platform", number: platformNumber };

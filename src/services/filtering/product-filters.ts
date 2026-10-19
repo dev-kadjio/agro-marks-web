@@ -23,8 +23,8 @@ export function matchesAvailability(availability: ProductAvailability, filter: A
 
 function matchesFacets(product: ProductSummary, criteria: ProductCriteria): boolean {
   if (criteria.categoryId && product.categoryId !== criteria.categoryId) return false;
-  if (criteria.farmerSlug && product.farmer.slug !== criteria.farmerSlug) return false;
-  if (criteria.regionId && product.farmer.regionId !== criteria.regionId) return false;
+  if (criteria.producerSlug && product.producer.slug !== criteria.producerSlug) return false;
+  if (criteria.regionId && product.producer.regionId !== criteria.regionId) return false;
   if (criteria.minPrice !== undefined && product.price.amount < criteria.minPrice) return false;
   if (criteria.maxPrice !== undefined && product.price.amount > criteria.maxPrice) return false;
   if (criteria.availability && !matchesAvailability(product.availability, criteria.availability)) return false;

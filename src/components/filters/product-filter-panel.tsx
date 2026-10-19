@@ -14,7 +14,7 @@ import { useFilterTransition } from "./filter-transition";
 
 export interface ProductFilterPanelOptions {
   readonly categories: readonly Option<CategoryId>[];
-  readonly farmers: readonly Option<string>[];
+  readonly producers: readonly Option<string>[];
   readonly regions: readonly Option<RegionId>[];
   readonly availability: readonly Option<AvailabilityFilter>[];
 }
@@ -99,13 +99,13 @@ export function ProductFilterPanel({ action, criteria, options, lockCategory = f
         />
       )}
       <SelectField
-        id="product-filter-farmer"
-        name="farmer"
-        label={t("farmer")}
-        placeholder={t("allFarmers")}
-        value={criteria.farmerSlug}
-        options={options.farmers}
-        onChange={(farmerSlug) => apply({ farmerSlug })}
+        id="product-filter-producer"
+        name="producer"
+        label={t("producer")}
+        placeholder={t("allProducers")}
+        value={criteria.producerSlug}
+        options={options.producers}
+        onChange={(producerSlug) => apply({ producerSlug })}
       />
       <SelectField
         id="product-filter-region"

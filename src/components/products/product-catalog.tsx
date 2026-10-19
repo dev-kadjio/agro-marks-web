@@ -24,8 +24,8 @@ interface ProductCatalogProps {
 export async function ProductCatalog({ basePath, searchParams, lockedCategoryId }: ProductCatalogProps) {
   const [locale, params] = await Promise.all([getLocale(), searchParams]);
   const filterOptions = await productService.getFilterOptions(locale, { categoryId: lockedCategoryId });
-  const farmerSlugs = new Set(filterOptions.farmers.map((farmer) => farmer.value));
-  const parsed = parseProductFilters(params, farmerSlugs);
+  const producerSlugs = new Set(filterOptions.producers.map((producer) => producer.value));
+  const parsed = parseProductFilters(params, producerSlugs);
   const criteria: ProductFilterCriteria = lockedCategoryId ? { ...parsed, categoryId: lockedCategoryId } : parsed;
   const serializeOptions = { omitCategory: Boolean(lockedCategoryId) };
 
@@ -45,7 +45,7 @@ export async function ProductCatalog({ basePath, searchParams, lockedCategoryId 
             action={getPathname({ href: basePath, locale })}
             criteria={{ ...criteria, page: results.page }}
             lockCategory={Boolean(lockedCategoryId)}
-            options={{ categories: filterOptions.categories, farmers: filterOptions.farmers, regions, availability }}
+            options={{ categories: filterOptions.categories, producers: filterOptions.producers, regions, availability }}
           />
         </aside>
         <PendingRegion>

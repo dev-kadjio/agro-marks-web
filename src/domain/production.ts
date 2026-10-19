@@ -1,43 +1,31 @@
 import type { LocalizedText } from "./locale";
 import type { ImageAsset } from "./media";
 
-export interface ProductionStep {
+export const productionStages = {
+  crop: ["soilPreparation", "sowingOrPlanting", "cropCare", "irrigation", "cropProtection", "harvest", "postHarvest"],
+  livestock: ["housing", "husbandry", "feeding", "animalHealth", "growth", "reproduction", "collection", "postHarvest"],
+  beekeeping: ["apiarySetup", "colonyCare", "harvest", "postHarvest"],
+  aquaculture: ["pondPreparation", "stocking", "feeding", "waterQuality", "harvest", "postHarvest"],
+} as const;
+
+export type ProductionProcessType = keyof typeof productionStages;
+
+export type ProductionStageId<T extends ProductionProcessType = ProductionProcessType> = (typeof productionStages)[T][number];
+
+export interface ProductionStep<S extends string = ProductionStageId> {
+  readonly stage: S;
   readonly title: LocalizedText;
   readonly description: LocalizedText;
   readonly image?: ImageAsset;
 }
 
-export interface CropProductionProcess {
-  readonly type: "crop";
-  readonly soilPreparation: ProductionStep;
-  readonly sowingOrPlanting: ProductionStep;
-  readonly cropCare: ProductionStep;
-  readonly irrigation?: ProductionStep;
-  readonly cropProtection?: ProductionStep;
-  readonly harvest: ProductionStep;
-  readonly postHarvest: ProductionStep;
-}
+export type ProductionProcessOf<T extends ProductionProcessType> = {
+  readonly type: T;
+  readonly steps: readonly ProductionStep<ProductionStageId<T>>[];
+};
 
-export interface LivestockProductionProcess {
-  readonly type: "livestock";
-  readonly housing: ProductionStep;
-  readonly feeding: ProductionStep;
-  readonly animalHealth: ProductionStep;
-  readonly collection: ProductionStep;
-  readonly postHarvest: ProductionStep;
-}
+export type ProductionProcess = { [T in ProductionProcessType]: ProductionProcessOf<T> }[ProductionProcessType];
 
-export interface BeekeepingProductionProcess {
-  readonly type: "beekeeping";
-  readonly apiarySetup: ProductionStep;
-  readonly colonyCare: ProductionStep;
-  readonly harvest: ProductionStep;
-  readonly postHarvest: ProductionStep;
-}
+export type CropProductionProcess = ProductionProcessOf<"crop">;
 
-export type ProductionProcess =
-  | CropProductionProcess
-  | LivestockProductionProcess
-  | BeekeepingProductionProcess;
-
-export type ProductionProcessType = ProductionProcess["type"];
+export type AnimalProductionProcess = Extract<ProductionProcess, { readonly type: "livestock" | "beekeeping" | "aquaculture" }>;

@@ -5,8 +5,8 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
 const sizes = {
-  header: { image: "size-12 sm:size-14", pixels: "56px", text: "text-sm sm:text-base" },
-  footer: { image: "size-24", pixels: "96px", text: "text-lg" },
+  header: { image: "h-14 w-auto sm:h-16", pixels: "56px", text: "text-sm sm:text-base", showName: true },
+  footer: { image: "h-40 w-auto", pixels: "136px", text: "text-lg", showName: false },
 } as const;
 
 export function Logo({ variant = "header", eager = false }: { variant?: keyof typeof sizes; eager?: boolean }) {
@@ -21,11 +21,13 @@ export function Logo({ variant = "header", eager = false }: { variant?: keyof ty
         height={brand.logo.height}
         sizes={size.pixels}
         loading={eager ? "eager" : "lazy"}
-        className={cn("rounded-full bg-white", size.image)}
+        className={cn("rounded-md", size.image)}
       />
-      <span aria-hidden="true" className={cn("font-semibold tracking-wide text-forest", size.text)}>
-        {brand.name}
-      </span>
+      {size.showName ? (
+        <span aria-hidden="true" className={cn("font-semibold tracking-wide text-forest", size.text)}>
+          {brand.name}
+        </span>
+      ) : null}
     </Link>
   );
 }

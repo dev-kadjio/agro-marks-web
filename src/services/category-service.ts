@@ -1,11 +1,12 @@
+import type { CategoryId } from "@/domain/category";
 import type { Locale } from "@/domain/locale";
-import type { CategoryRepository, ProductRepository } from "@/repositories/contracts";
+import type { CategoryRepository, ProducedItemRepository } from "@/repositories/contracts";
 import { toCategoryDetail, toCategorySummary } from "./mappers";
 import type { CategoryDetail, CategorySummary } from "./view-models";
 
 export interface CategoryDependencies {
   readonly categories: CategoryRepository;
-  readonly products: ProductRepository;
+  readonly producedItems: ProducedItemRepository;
 }
 
 export interface CategoryService {
@@ -15,12 +16,23 @@ export interface CategoryService {
 }
 
 export function createCategoryService(deps: CategoryDependencies): CategoryService {
+  async function producerCounts(): Promise<ReadonlyMap<CategoryId, number>> {
+    const items = await deps.producedItems.findAll();
+    const producersByCategory = new Map<CategoryId, Set<string>>();
+    for (const item of items) {
+      const producers = producersByCategory.get(item.categoryId) ?? new Set<string>();
+      producers.add(item.producerId);
+      producersByCategory.set(item.categoryId, producers);
+    }
+    return new Map([...producersByCategory].map(([categoryId, producers]) => [categoryId, producers.size]));
+  }
+
   return {
     async listCategories(locale) {
-      const [categories, products] = await Promise.all([deps.categories.findAll(), deps.products.findAll()]);
-      return categories.map((category) =>
-        toCategorySummary(category, products.filter((product) => product.categoryId === category.id).length, locale),
-      );
+      const [categories, counts] = await Promise.all([deps.categories.findAll(), producerCounts()]);
+      return categories
+        .map((category) => toCategorySummary(category, counts.get(category.id) ?? 0, locale))
+        .filter((category) => category.producerCount > 0);
     },
 
     async getCategory(locale, slug) {
@@ -28,8 +40,8 @@ export function createCategoryService(deps: CategoryDependencies): CategoryServi
       if (!category) {
         return null;
       }
-      const products = await deps.products.findByCategoryId(category.id);
-      return toCategoryDetail(category, products.length, locale);
+      const counts = await producerCounts();
+      return toCategoryDetail(category, counts.get(category.id) ?? 0, locale);
     },
 
     async listSlugs() {

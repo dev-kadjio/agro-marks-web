@@ -1,10 +1,10 @@
 export const mainNavigation = [
   { key: "home", href: "/" },
-  { key: "products", href: "/products" },
-  { key: "farmers", href: "/farmers" },
+  { key: "producers", href: "/producers" },
   { key: "categories", href: "/categories" },
   { key: "about", href: "/about" },
   { key: "contact", href: "/contact" },
+  { key: "faq", href: "/faq" },
 ] as const;
 
 export type MainNavigationKey = (typeof mainNavigation)[number]["key"];

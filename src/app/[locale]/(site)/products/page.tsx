@@ -13,7 +13,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [locale, t] = await Promise.all([getLocale(), getTranslations("seo.products")]);
-  return buildPageMetadata({ locale, path: "/products", title: t("title"), description: t("description") });
+  return buildPageMetadata({ locale, path: "/products", title: t("title"), description: t("description"), noIndex: true });
 }
 
 export default async function ProductsPage({ searchParams }: PageProps<"/[locale]/products">) {

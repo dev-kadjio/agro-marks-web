@@ -6,6 +6,11 @@ export function text(fr: string, en: string): LocalizedText {
   return { fr, en };
 }
 
-export function step(title: LocalizedText, description: LocalizedText, image?: ImageAsset): ProductionStep {
-  return image ? { title, description, image } : { title, description };
+export function step<const S extends string>(
+  stage: S,
+  title: LocalizedText,
+  description: LocalizedText,
+  image?: ImageAsset,
+): ProductionStep<S> {
+  return image ? { stage, title, description, image } : { stage, title, description };
 }
