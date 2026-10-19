@@ -57,9 +57,22 @@
     "hero": {
       "eyebrow": "Farmers and livestock breeders of Cameroon",
       "title": "Meet the people who produce our food",
-      "description": "AGRO-MARKS presents Cameroonian farmers and livestock breeders: their farms, their know-how and the way they grow crops or raise animals.",
+      "description": "AGRO-MARKS introduces you to Cameroonian farmers and livestock breeders, their farms and their know-how. We then support you at every step, from your first contact with the producer until your goods reach you safely.",
       "primaryCta": "Discover the producers",
       "secondaryCta": "Explore by area",
+      "search": {
+        "label": "What are you looking for?",
+        "hint": "A producer, a town, a crop or livestock.",
+        "placeholder": "Name, town, crop, livestock…",
+        "submit": "Search",
+        "suggestionsLabel": "Try:",
+        "suggestions": {
+          "first": "Cocoa",
+          "second": "Chickens",
+          "third": "Honey",
+          "fourth": "Dschang"
+        }
+      },
       "stats": {
         "producers": "{count, plural, one {producer} other {producers}}",
         "categories": "{count, plural, one {production area} other {production areas}}",

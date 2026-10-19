@@ -4,14 +4,16 @@ import { useFormatter, useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { buttonClasses } from "@/components/ui/styles";
 import { Link } from "@/i18n/navigation";
+import { HeroSearch } from "./hero-search";
 import type { PhotoView } from "@/services/view-models";
 
 interface HeroProps {
   readonly photo: PhotoView;
+  readonly searchAction: string;
   readonly stats: { readonly producers: number; readonly categories: number; readonly regions: number };
 }
 
-export function Hero({ photo, stats }: HeroProps) {
+export function Hero({ photo, searchAction, stats }: HeroProps) {
   const t = useTranslations("home.hero");
   const format = useFormatter();
   return (
@@ -24,7 +26,8 @@ export function Hero({ photo, stats }: HeroProps) {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{t("description")}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="/producers" className={buttonClasses({ size: "lg", className: "whitespace-nowrap" })}>
+            <HeroSearch action={searchAction} className="sm:hidden" />
+            <Link href="/producers" className={buttonClasses({ size: "lg", className: "hidden whitespace-nowrap sm:inline-flex" })}>
               {t("primaryCta")}
               <ArrowRight aria-hidden="true" className="size-4" />
             </Link>
