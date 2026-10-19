@@ -57,9 +57,22 @@
     "hero": {
       "eyebrow": "Agriculteurs et éleveurs du Cameroun",
       "title": "Découvrez celles et ceux qui produisent notre alimentation",
-      "description": "AGRO-MARKS présente des agriculteurs et des éleveurs camerounais : leurs exploitations, leurs savoir-faire et la manière dont ils cultivent ou élèvent.",
+      "description": "AGRO-MARKS vous fait découvrir des agriculteurs et des éleveurs camerounais, leurs exploitations et leur savoir-faire. Nous vous accompagnons ensuite à chaque étape, du premier contact avec le producteur jusqu'à la réception de votre marchandise en toute sécurité.",
       "primaryCta": "Découvrir les producteurs",
       "secondaryCta": "Explorer les domaines",
+      "search": {
+        "label": "Que recherchez-vous ?",
+        "hint": "Un producteur, une ville, une culture ou un élevage.",
+        "placeholder": "Nom, ville, culture, élevage…",
+        "submit": "Rechercher",
+        "suggestionsLabel": "Essayez :",
+        "suggestions": {
+          "first": "Cacao",
+          "second": "Poulets",
+          "third": "Miel",
+          "fourth": "Dschang"
+        }
+      },
       "stats": {
         "producers": "{count, plural, one {producteur} other {producteurs}}",
         "categories": "{count, plural, one {domaine de production} other {domaines de production}}",

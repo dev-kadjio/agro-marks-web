@@ -50,7 +50,7 @@ export default async function HomePage() {
   return (
     <>
       {heroPhoto ? (
-        <Hero photo={heroPhoto} stats={{ producers: producers.length, categories: categories.length, regions: regionCount }} />
+        <Hero photo={heroPhoto} searchAction={getPathname({ href: "/producers", locale })} stats={{ producers: producers.length, categories: categories.length, regions: regionCount }} />
       ) : null}
 
       <ProducerTypesIntro highlights={highlights} />
